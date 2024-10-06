@@ -1,8 +1,9 @@
 import React from 'react'
+import DictionaryWrapper from '../components/DictionaryWrapper/DictionaryWrapper';
 
 const DictionaryPage = () => {
   return (
-    <div>DictionaryPage</div>
+    <DictionaryWrapper />
   )
 }
 
