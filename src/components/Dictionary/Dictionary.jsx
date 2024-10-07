@@ -17,6 +17,29 @@ const Dictionary = () => {
         <h3>noun</h3>
         <span className={styles.horizontal__ruler}></span>
       </div>
+      <div className={styles.word__meaning}>
+        <h4>Meaning</h4>
+        <ul>
+          <li>Hey</li>
+          <li>Go there</li>
+          <li>Please</li>
+        </ul>
+      </div>
+      <div className="synonyms">
+        <h4>Synonyms</h4>
+        <p>electronuc keyboard</p>
+      </div>
+
+      <div className={styles.word__type}>
+        <h3>noun</h3>
+        <span className={styles.horizontal__ruler}></span>
+      </div>
+      <div className={styles.word__meaning}>
+        <h4>Meaning</h4>
+        <ul>
+          <li>Hey</li>
+        </ul>
+      </div>
     </main>
   );
 };
