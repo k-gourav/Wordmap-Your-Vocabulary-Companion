@@ -85,7 +85,10 @@ ul li::marker{
         margin-left: 12px;
     }
     .word__withphonetics h1{
-        font-size: 3rem;
+        font-size: 2.6rem;
+    }
+    ul li{
+        font-size: 1.1rem;
     }
 
 }
