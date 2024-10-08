@@ -1,0 +1,20 @@
+.main__element{
+    padding: 0 3rem;
+}
+.main__word{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.word__withphonetics{
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+.word__withphonetics h1{
+    font-size: 4rem;
+}
+.word__withphonetics p{
+    font-size: 1.5rem;
+    color: #a445ed;
+}

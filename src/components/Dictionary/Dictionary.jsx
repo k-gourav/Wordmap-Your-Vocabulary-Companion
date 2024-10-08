@@ -1,4 +1,5 @@
 import React from "react";
+import audioPlayer from '../../assets/images/play-icon.svg'
 import styles from "./Dictionary.module.css";
 
 const Dictionary = () => {
@@ -10,7 +11,7 @@ const Dictionary = () => {
           <p>/'ki:b:cd/</p>
         </div>
         <button className={styles.audio__player}>
-          <img src="" alt="" />
+          <img src={audioPlayer} alt="Audio-Player" />
         </button>
       </div>
       <div className={styles.word__type}>

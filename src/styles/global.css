@@ -1,0 +1,22 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  display: flex;
+  justify-content: center;
+}
+body {
+  min-height: 110vh;
+  width: 82%;
+}
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #b2a6dfca;
+}
+::-webkit-scrollbar-thumb {
+  background: #9974aa;
+}
