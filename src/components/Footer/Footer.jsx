@@ -6,7 +6,7 @@ const Footer = ({ fontSelected }) => {
   return (
     <footer className={styles.footer__element}  style={{fontFamily: fontSelected}}>
         <p className={styles.footer__title}>Source</p>
-        <p className={styles.footer__link}> <a href="http://www.google.com">http://www.google.com</a> <img src={linkIcon} alt="External Link Icon" width="18" /></p>
+        <p className={styles.footer__link}> <a href="http://www.google.com" alt="external-link">http://www.google.com</a> <img src={linkIcon} alt="Source Link Icon" width="18" /></p>
     </footer>
   )
 }

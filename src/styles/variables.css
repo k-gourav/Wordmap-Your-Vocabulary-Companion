@@ -1,1 +1,18 @@
+:root{
+    --light-bg: #fff;
+    --light-font: #2d2d2d;
+    --light-purple: #9d40e4;
+    --light-input: #f4f4f4;
+    --ruler-bg: rgb(197, 196, 196);
+    --light-gray: #757575;
+    --list-color: #9c40e3;
+    --dark-purple: #953ed8;
+    --font-family-one: "Lora", serif;
+    --font-family-two: "Castoro", serif;
 
+}
+[data-theme="dark"]{
+    --dark-bg: #1f1f1f;
+    --dark-font: #f5f5f5;
+    --dark-input: #2e2d2da3;
+}

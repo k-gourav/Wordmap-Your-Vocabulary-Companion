@@ -2,24 +2,25 @@
 .footer__element{
     display: flex;
     gap: 1rem;
-    border-top: 1px solid rgb(197, 196, 196);;
+    border-top: 1px solid var(--ruler-bg);
     padding: 1rem 0 3rem 0;
     font-size: 1rem;
-    font-family: "Lora", serif;
+    font-family: var(--font-family-one);
 }
 .footer__title{
-    color: #757575;
+    color: var(--light-gray);
 }
 .footer__link{
     display: flex;
     gap: 0.5rem;
     align-items: center;
+    cursor: pointer;
 }
 img[src]{
     display: block;
 }
 a[href]{
     display: block;
-    color: #2d2d2d;
+    color: var(--light-font);
     font-weight: 400;
 }

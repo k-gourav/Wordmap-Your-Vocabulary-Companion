@@ -26,7 +26,7 @@
 #font__type {
   border: none;
   cursor: pointer;
-  border-right: 1px solid;
+  border-right: 1px solid var(--light-gray);
   font-weight: 600;
   padding: 0;
 }
@@ -78,7 +78,7 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 .search__bar{
-    background-color: #f4f4f4;
+    background-color: var(--light-input);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -86,15 +86,17 @@ input:checked + .slider:before {
     padding-left: 2rem;
     padding-right: 2rem;
     border-radius: 15px;
+    box-shadow: rgba(224, 230, 237, 0.016) 0px 8px 24px;
 }
 #search__input{
     outline: none;
     border: none;
     background: transparent;
     width: 80%;
-    font-size: 1.2rem;
-    font-weight: 600;
+    font-size: 1.25rem;
+    font-weight: 500;
     font-family: inherit;
+    color: var(--light-font);
 }
 .search__btn{
     border: none;
