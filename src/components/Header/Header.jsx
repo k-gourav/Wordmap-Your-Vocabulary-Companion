@@ -1,15 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import dictionaryLogo from "../../assets/icons/dictionary-icon.svg";
 import moonLogo from "../../assets/icons/moon-logo.svg";
 import searchIcon from "../../assets/images/search-icon.svg";
 import styles from "./Header.module.css";
 
-const Header = ({ setFontSelected, fontSelected }) => {
+const Header = ({ setFontSelected, fontSelected, darkTheme, setDarkTheme }) => {
     const handleFontChange = (event) => {
         setFontSelected(event.target.value);
       };
+      const themeHandler = (event) => {
+        setDarkTheme(event.target.checked)
+      }
+      
+      useEffect(() => {
+        document.body.setAttribute('data-theme', darkTheme ? 'dark' : 'light');
+    
+        return () => {
+          document.body.removeAttribute('data-theme');
+        };
+      }, [darkTheme]);
+
   return (
-    <header className={styles.header__element} style={{fontFamily: fontSelected}}>
+    <header className={styles.header__element} style={{fontFamily: fontSelected}} data-theme={darkTheme ? "dark" : "light"}>
       <div className={styles.nav__bar}>
         <img src={dictionaryLogo} alt="Dictionary-Logo" />
 
@@ -21,7 +33,7 @@ const Header = ({ setFontSelected, fontSelected }) => {
           </select>
           <div className={styles.toggle__theme}>
             <label className={styles.switch}>
-              <input type="checkbox" id={styles.theme_toggle} />
+              <input type="checkbox" id={styles.theme_toggle} onChange={themeHandler} checked={darkTheme} />
               <span className={`${styles.slider} ${styles.round}`}></span>
             </label>
             <img src={moonLogo} alt="Moon-Logo" width="26" />

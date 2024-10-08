@@ -2,9 +2,9 @@ import React from "react";
 import audioPlayer from '../../assets/images/play-icon.svg'
 import styles from "./Dictionary.module.css";
 
-const Dictionary = ({ fontSelected }) => {
+const Dictionary = ({ fontSelected, darkTheme }) => {
   return (
-    <main className={styles.main__element}  style={{fontFamily: fontSelected}}>
+    <main className={styles.main__element}  style={{fontFamily: fontSelected}} data-theme={darkTheme ? "dark" : "light"}>
       <div className={styles.main__word}>
         <div className={styles.word__withphonetics}>
           <h1>keyboard</h1>
