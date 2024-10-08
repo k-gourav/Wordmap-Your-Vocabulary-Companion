@@ -23,3 +23,18 @@ body[data-theme="dark"]{
 ::-webkit-scrollbar-thumb {
   background: #9974aa;
 }
+
+@media screen and (min-width: 768px) {
+    body{
+        width: 90%;
+    }
+}
+@media screen and (max-width: 768px){
+    body {
+        width: 89%;
+    }
+    .word__meaning ul {
+        margin-left: 0;
+
+    }
+}
