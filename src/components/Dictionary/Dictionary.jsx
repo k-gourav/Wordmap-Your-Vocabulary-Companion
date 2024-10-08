@@ -32,7 +32,7 @@ const Dictionary = () => {
       </div>
 
       <div className={styles.word__type}>
-        <h3>noun</h3>
+        <h3>verb</h3>
         <span className={styles.horizontal__ruler}></span>
       </div>
       <div className={styles.word__meaning}>

@@ -18,3 +18,8 @@
     font-size: 1.5rem;
     color: #a445ed;
 }
+.audio__player{
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
