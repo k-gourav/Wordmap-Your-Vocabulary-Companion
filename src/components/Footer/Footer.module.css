@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+.footer__element{
+    display: flex;
+    gap: 1rem;
+    border-top: 1px solid rgb(197, 196, 196);;
+    padding: 1rem 0 3rem 0;
+    font-size: 1rem;
+    font-family: "Lora", serif;
+}
+.footer__title{
+    color: #757575;
+}
+.footer__link{
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+img[src]{
+    display: block;
+}
+a[href]{
+    display: block;
+    color: #2d2d2d;
+    font-weight: 400;
+}

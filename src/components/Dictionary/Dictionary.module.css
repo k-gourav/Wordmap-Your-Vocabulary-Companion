@@ -1,5 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
 .main__element{
-    padding: 0 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.2rem;
+    margin-bottom: 2.5rem;
 }
 .main__word{
     display: flex;
@@ -13,13 +19,69 @@
 }
 .word__withphonetics h1{
     font-size: 4rem;
+    color: #2d2d2d;
 }
 .word__withphonetics p{
     font-size: 1.5rem;
-    color: #a445ed;
+    color: #9d40e4;
 }
 .audio__player{
     border: none;
     background: transparent;
     cursor: pointer;
+}
+.word__type{
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #2d2d2d;
+    font-family: "Castoro", serif;
+}
+.horizontal__ruler{
+    height: 0.5px;
+    width: 98%;
+    background-color: rgb(197, 196, 196);
+}
+.word__meaning{
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+}
+.word__meaning p{
+    font-size: 1.3rem;
+    color: #757575;
+    font-family: "Lora", serif;
+}
+.word__meaning ul{
+    margin-left: 2.3rem;
+}
+ul{
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+ul li{
+    font-size: 1.2rem;
+    color: #2d2d2d;
+}
+ul li::marker{
+    color: #9c40e3;
+}
+.synonyms{
+    display: flex;
+    align-items: center;
+    gap: 1.7rem;
+    margin: 1rem 0;
+}
+.synonyms__title{
+    font-size: 1.3rem;
+    color: #757575;
+    font-family: "Lora", serif;
+}
+.synonyms__content{
+    color: #953ed8;
+    font-weight: 600;
+    font-size: 1.3rem;
 }

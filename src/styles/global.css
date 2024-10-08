@@ -8,8 +8,8 @@ html {
   justify-content: center;
 }
 body {
-  min-height: 110vh;
-  width: 82%;
+  min-height: 100vh;
+  width: 78%;
 }
 ::-webkit-scrollbar {
   width: 5px;
