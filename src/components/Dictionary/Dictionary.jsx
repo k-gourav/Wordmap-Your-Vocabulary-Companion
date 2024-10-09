@@ -4,12 +4,16 @@ import styles from "./Dictionary.module.css";
 
 const Dictionary = ({ fontSelected, darkTheme, handleSearchResult }) => {
   const wordData = handleSearchResult[0];
+  const firstPhoneticWithAudio = wordData?.phonetics.find(
+    (phonetic) => phonetic.audio
+  );
   if (!handleSearchResult) {
     return (
         <div className={styles.no__result}>
-        <h2>Start learning today !😛</h2>
+        <h2>Oops ! 😕</h2>
         <p>
-          Search for your favourite words and share the world.
+        We couldn't find the word you were looking for. Please try searching
+        again with a different word!
         </p>
       </div>
     )
@@ -27,20 +31,14 @@ const Dictionary = ({ fontSelected, darkTheme, handleSearchResult }) => {
               <h1>{wordData.word}</h1>
               <p>{wordData.phonetics[0]?.text}</p>
             </div>
-            <div className={styles.audio__container}>
-            {wordData.phonetics.map(
-              (phonetic, index) =>
-                phonetic.audio && (
-                  <button
-                    key={index}
-                    className={styles.audio__player}
-                    onClick={() => new Audio(phonetic.audio).play()}
-                  >
-                    <img src={audioPlayer} alt="Audio-Player" width="60" />
-                  </button>
-                )
+            {firstPhoneticWithAudio && (
+              <button
+                className={styles.audio__player}
+                onClick={() => new Audio(firstPhoneticWithAudio.audio).play()}
+              >
+                <img src={audioPlayer} alt="Audio-Player" width="60" />
+              </button>
             )}
-            </div>
           </div>
 
           {wordData.meanings
@@ -103,7 +101,7 @@ const Dictionary = ({ fontSelected, darkTheme, handleSearchResult }) => {
         </>
       ) : (
         <div className={styles.no__result}>
-        <h2>Start learning  !😛</h2>
+        <h2>Welcome to Wordmap  !</h2>
         <p>
           Search for your favourite words and share the world.
         </p>

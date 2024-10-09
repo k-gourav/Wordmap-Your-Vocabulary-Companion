@@ -25,12 +25,6 @@
   font-size: 1.5rem;
   color: var(--light-purple);
 }
-.audio__container{
-  display: flex;
-  flex-direction: column;
-  gap: 0.9rem;
-  align-items: flex-start;
-}
 .audio__player {
   border: none;
   background: transparent;
@@ -127,8 +121,11 @@ ul li::marker {
   .synonyms__content {
     font-size: 1.18rem;
   }
+  .no__result{
+    height: 28vh;
+  }
   .no__result h2{
-    font-size: 2.3rem;
+    font-size: 1.87rem;
   }
   .no__result p {
     font-size: 1.1rem;
