@@ -19,7 +19,7 @@ const Header = ({ setFontSelected, fontSelected, darkTheme, setDarkTheme }) => {
       data-theme={darkTheme ? "dark" : "light"}
     >
       <div className={styles.nav__bar}>
-        <img src={dictionaryLogo} alt="Dictionary-Logo" />
+        <img src={dictionaryLogo} alt="Dictionary-Logo" id={styles.logo__icon} />
 
         <div className={styles.font_toggle__items}>
           <select
