@@ -1,12 +1,18 @@
-import React, {useState} from "react";
-import { fetchSearchResults } from "../../api/dictionaryApi"
+import React, { useState } from "react";
+import { fetchSearchResults } from "../../api/dictionaryApi";
 import dictionaryLogo from "../../assets/icons/dictionary-icon.svg";
 import moonLogo from "../../assets/icons/moon-logo.svg";
 import searchIcon from "../../assets/images/search-icon.svg";
 import styles from "./Header.module.css";
 
-const Header = ({ setFontSelected, fontSelected, darkTheme, setDarkTheme, setHandleSearchResult }) => {
-  const [inputWord, setInputWord] = useState('');
+const Header = ({
+  setFontSelected,
+  fontSelected,
+  darkTheme,
+  setDarkTheme,
+  setHandleSearchResult,
+}) => {
+  const [inputWord, setInputWord] = useState("");
 
   const handleFontChange = (event) => {
     setFontSelected(event.target.value);
@@ -31,7 +37,11 @@ const Header = ({ setFontSelected, fontSelected, darkTheme, setDarkTheme, setHan
       data-theme={darkTheme ? "dark" : "light"}
     >
       <div className={styles.nav__bar}>
-        <img src={dictionaryLogo} alt="Dictionary-Logo" id={styles.logo__icon} />
+        <img
+          src={dictionaryLogo}
+          alt="Dictionary-Logo"
+          id={styles.logo__icon}
+        />
 
         <div className={styles.font_toggle__items}>
           <select
@@ -43,6 +53,7 @@ const Header = ({ setFontSelected, fontSelected, darkTheme, setDarkTheme, setHan
             <option value="Sans-Serif">Sans Serif</option>
             <option value="Monospace">Monospace</option>
           </select>
+          <span id={styles.nav__line}></span>
           <div className={styles.toggle__theme}>
             <label className={styles.switch}>
               <input
@@ -66,7 +77,7 @@ const Header = ({ setFontSelected, fontSelected, darkTheme, setDarkTheme, setHan
           value={inputWord}
           placeholder="Search word..."
           onKeyDown={(e) => {
-            if (e.key === 'Enter') inputSubmissionHandler();
+            if (e.key === "Enter") inputSubmissionHandler();
           }}
         />
         <button className={styles.search__btn} onClick={inputSubmissionHandler}>

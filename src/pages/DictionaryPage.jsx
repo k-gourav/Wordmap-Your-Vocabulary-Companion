@@ -1,10 +1,8 @@
-import React from 'react'
-import DictionaryWrapper from '../components/DictionaryWrapper/DictionaryWrapper';
+import React from "react";
+import DictionaryWrapper from "../components/DictionaryWrapper/DictionaryWrapper";
 
 const DictionaryPage = () => {
-  return (
-    <DictionaryWrapper />
-  )
-}
+  return <DictionaryWrapper />;
+};
 
 export default DictionaryPage;

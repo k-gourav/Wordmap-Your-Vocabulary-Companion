@@ -9,14 +9,14 @@ const Dictionary = ({ fontSelected, darkTheme, handleSearchResult }) => {
   );
   if (!handleSearchResult) {
     return (
-        <div className={styles.no__result}>
+      <div className={styles.no__result}>
         <h2>Oops ! 😕</h2>
         <p>
-        We couldn't find the word you were looking for. Please try searching
-        again with a different word!
+          We couldn't find the word you were looking for. Please try searching
+          again with a different word!
         </p>
       </div>
-    )
+    );
   }
   return (
     <main
@@ -53,9 +53,7 @@ const Dictionary = ({ fontSelected, darkTheme, handleSearchResult }) => {
                   <p>Meaning</p>
                   <ul>
                     {meaning.definitions.map((definition, defIndex) => (
-                      <li key={defIndex}>
-                        {definition.definition}
-                      </li>
+                      <li key={defIndex}>{definition.definition}</li>
                     ))}
                   </ul>
                 </div>
@@ -101,11 +99,9 @@ const Dictionary = ({ fontSelected, darkTheme, handleSearchResult }) => {
         </>
       ) : (
         <div className={styles.no__result}>
-        <h2>Welcome to Wordmap  !</h2>
-        <p>
-          Search for your favourite words and share the world.
-        </p>
-      </div>
+          <h2>Welcome to Wordmap !</h2>
+          <p>Search for your favourite words and share the world.</p>
+        </div>
       )}
     </main>
   );

@@ -1,35 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
-.footer__element{
-    display: flex;
-    gap: 2rem;
-    border-top: 1px solid var(--ruler-bg);
-    padding: 1rem 0 3rem 0;
-    font-size: 1rem;
-    font-family: var(--font-family-one);
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap");
+.footer__element {
+  display: flex;
+  gap: 2rem;
+  border-top: 1px solid var(--ruler-bg);
+  padding: 1rem 0 3rem 0;
+  font-size: 1rem;
+  font-family: var(--font-family-one);
 }
-.footer__title{
-    color: var(--light-gray);
+.footer__title {
+  color: var(--light-gray);
 }
-.footer__link{
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-    cursor: pointer;
+.footer__link {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  cursor: pointer;
 }
-img[src]{
-    display: block;
+img[src] {
+  display: block;
 }
-a[href]{
-    display: block;
-    color: var(--light-font);
-    font-weight: 400;
+a[href] {
+  display: block;
+  color: var(--light-font);
+  font-weight: 400;
 }
-#no__border{
-    border: none;
+#no__border {
+  border: none;
 }
-@media screen and (max-width: 768px){
-    .footer__element {
-        flex-direction: column;
-        gap: 0.8rem;
-    }
+@media screen and (max-width: 768px) {
+  .footer__element {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
 }

@@ -31,11 +31,11 @@
   cursor: pointer;
   transition: 1.5s all cubic-bezier(0.075, 0.82, 0.165, 1);
 }
-img[alt="Audio-Player"]{
+img[alt="Audio-Player"] {
   float: right;
 }
-.audio__player:active{
-    transform: scale(1.8);
+.audio__player:active {
+  transform: scale(1.8);
 }
 .word__type {
   display: flex;
@@ -47,7 +47,7 @@ img[alt="Audio-Player"]{
   font-family: var(--font-family-two);
 }
 .horizontal__ruler {
-  height: 0.5px;
+  height: 1px;
   width: 98%;
   background-color: var(--ruler-bg);
 }
@@ -87,31 +87,31 @@ ul li::marker {
   font-size: 1.3rem;
   line-height: 1.5;
 }
-#verb__example{
-    font-size: 1.15rem;
+#verb__example {
+  font-size: 1.15rem;
 }
-.no__result{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 40vh;
-    color: var(--light-font);
-    gap: 1.5rem;
-    font-family: var(--font-family-one);
+.no__result {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 40vh;
+  color: var(--light-font);
+  gap: 1.5rem;
+  font-family: var(--font-family-one);
 }
-.no__result h2{
-    font-size: 4rem;
-    color: rgb(210, 55, 55);
+.no__result h2 {
+  font-size: 4rem;
+  color: rgb(210, 55, 55);
 }
-.no__result p{
-    font-size: 1.5rem;
-    width: 50%;
-    text-align: center;
-    line-height: 1.6;
+.no__result p {
+  font-size: 1.5rem;
+  width: 50%;
+  text-align: center;
+  line-height: 1.6;
 }
 @media screen and (max-width: 768px) {
-  .main__word{
+  .main__word {
     padding-left: 0.25rem;
     padding-right: 0.25rem;
   }
@@ -128,17 +128,17 @@ ul li::marker {
   .synonyms__content {
     font-size: 1.18rem;
   }
-  .no__result{
+  .no__result {
     height: 28vh;
   }
-  .no__result h2{
+  .no__result h2 {
     font-size: 1.87rem;
   }
   .no__result p {
     font-size: 1.1rem;
     width: 99%;
   }
-  img[alt="Audio-Player"]{
+  img[alt="Audio-Player"] {
     width: 68%;
   }
 }
