@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import { fetchSearchResults } from "../../api/dictionaryApi"
 import dictionaryLogo from "../../assets/icons/dictionary-icon.svg";
 import moonLogo from "../../assets/icons/moon-logo.svg";
 import searchIcon from "../../assets/images/search-icon.svg";
@@ -14,23 +15,14 @@ const Header = ({ setFontSelected, fontSelected, darkTheme, setDarkTheme, setHan
     setDarkTheme(event.target.checked);
   };
 
-  const fetchSearchResults = async () => {
-    if (!inputWord) {
-        return setHandleSearchResult(inputWord)
-    };
-    
+  const inputSubmissionHandler = async () => {
     try {
-      const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${inputWord}`);
-      const result = await response.json();
+      const result = await fetchSearchResults(inputWord);
       setHandleSearchResult(result);
     } catch (error) {
-      console.error('Error fetching search results:', error);
+      console.error("Error fetching search results:", error);
     }
   };
-
-  const inputSubmissionHandler = () => {
-    fetchSearchResults();
-  }
 
   return (
     <header
