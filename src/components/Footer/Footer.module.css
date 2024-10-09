@@ -24,7 +24,9 @@ a[href]{
     color: var(--light-font);
     font-weight: 400;
 }
-
+#no__border{
+    border: none;
+}
 @media screen and (max-width: 768px){
     .footer__element {
         flex-direction: column;

@@ -1,16 +1,36 @@
-import React from "react";
+import React, {useState} from "react";
 import dictionaryLogo from "../../assets/icons/dictionary-icon.svg";
 import moonLogo from "../../assets/icons/moon-logo.svg";
 import searchIcon from "../../assets/images/search-icon.svg";
 import styles from "./Header.module.css";
 
-const Header = ({ setFontSelected, fontSelected, darkTheme, setDarkTheme }) => {
+const Header = ({ setFontSelected, fontSelected, darkTheme, setDarkTheme, setHandleSearchResult }) => {
+  const [inputWord, setInputWord] = useState('');
+
   const handleFontChange = (event) => {
     setFontSelected(event.target.value);
   };
   const themeHandler = (event) => {
     setDarkTheme(event.target.checked);
   };
+
+  const fetchSearchResults = async () => {
+    if (!inputWord) {
+        return setHandleSearchResult(inputWord)
+    };
+    
+    try {
+      const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${inputWord}`);
+      const result = await response.json();
+      setHandleSearchResult(result);
+    } catch (error) {
+      console.error('Error fetching search results:', error);
+    }
+  };
+
+  const inputSubmissionHandler = () => {
+    fetchSearchResults();
+  }
 
   return (
     <header
@@ -50,9 +70,14 @@ const Header = ({ setFontSelected, fontSelected, darkTheme, setDarkTheme }) => {
           type="text"
           name="search-bar"
           id={styles.search__input}
+          onChange={(e) => setInputWord(e.target.value)}
+          value={inputWord}
           placeholder="Search word..."
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') inputSubmissionHandler();
+          }}
         />
-        <button className={styles.search__btn}>
+        <button className={styles.search__btn} onClick={inputSubmissionHandler}>
           <img src={searchIcon} alt="Search-Icon" />
         </button>
       </div>

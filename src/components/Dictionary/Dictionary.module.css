@@ -25,10 +25,20 @@
   font-size: 1.5rem;
   color: var(--light-purple);
 }
+.audio__container{
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  align-items: flex-start;
+}
 .audio__player {
   border: none;
   background: transparent;
   cursor: pointer;
+  transition: 1.5s all cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.audio__player:active{
+    transform: scale(1.8);
 }
 .word__type {
   display: flex;
@@ -71,7 +81,6 @@ ul li::marker {
 }
 .synonyms {
   display: flex;
-  align-items: center;
   gap: 1.7rem;
   margin: 1rem 0;
 }
@@ -79,8 +88,31 @@ ul li::marker {
   color: var(--dark-purple);
   font-weight: 600;
   font-size: 1.3rem;
+  line-height: 1.5;
 }
-
+#verb__example{
+    font-size: 1.15rem;
+}
+.no__result{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+    color: var(--light-font);
+    gap: 1.5rem;
+    font-family: var(--font-family-one);
+}
+.no__result h2{
+    font-size: 4rem;
+    color: rgb(210, 55, 55);
+}
+.no__result p{
+    font-size: 1.5rem;
+    width: 50%;
+    text-align: center;
+    line-height: 1.6;
+}
 @media screen and (max-width: 768px) {
   .word__meaning ul {
     margin-left: 12px;
@@ -94,5 +126,15 @@ ul li::marker {
   .synonyms__title,
   .synonyms__content {
     font-size: 1.18rem;
+  }
+  .no__result h2{
+    font-size: 2.5rem;
+  }
+  .no__result p {
+    font-size: 1.1rem;
+    width: 99%;
+  }
+  img[alt="Audio-Player"]{
+    width: 50%;
   }
 }
