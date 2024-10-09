@@ -16,7 +16,7 @@
 .font_toggle__items {
   display: flex;
   align-items: center;
-  gap: 3.5rem;
+  gap: 1.3rem;
 }
 .toggle__theme {
   display: flex;
@@ -26,7 +26,8 @@
 #font__type {
   border: none;
   cursor: pointer;
-  border-right: 1px solid var(--light-gray);
+  /* border-right: 1px solid var(--light-gray); */
+  font-size: 1rem;
   font-weight: 600;
   padding: 0;
   background: transparent;
@@ -110,7 +111,7 @@ input:checked + .slider:before {
 
 @media screen and (max-width: 768px) {
   .font_toggle__items {
-    gap: 1.1rem;
+    gap: 1rem;
   }
   .toggle__theme {
     gap: 1rem;
@@ -134,7 +135,7 @@ input:checked + .slider:before {
     font-size: 1.15rem;
   }
   #logo__icon{
-    width: 9.9%;
+    width: 9.6%;
   }
   #font__type{
     font-size: 0.9rem;
