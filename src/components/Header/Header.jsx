@@ -52,7 +52,7 @@ const Header = ({
             <option value="Sans-Serif" style={{fontFamily: "sans-serif"}}>Sleek Mode</option>
             <option value="Monospace" style={{fontFamily: "monospace"}}>Retro Mode</option>
             <option value="Barlow" style={{fontFamily: "Barlow"}}>Friendly mode</option>
-            <option value="Fredericka the Great" style={{fontFamily: "Fredericka the Great"}}>Vintage Mode</option>
+            <option value="Special Elite" style={{fontFamily: "Special Elite"}}>Vintage Mode</option>
           </select>
           <span id={styles.nav__line}></span>
           <div className={styles.toggle__theme}>
