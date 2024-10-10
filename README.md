@@ -1,4 +1,4 @@
-# Wordmap - Your Dictionary Companion
+# Wordmap - Your Vocabulary Companion
 
 Wordmap is a user-friendly, responsive dictionary application built with React. It allows users to search for word definitions, phonetics, and examples, providing a comprehensive understanding of any word. The app features theme switching, font customization, and audio pronunciation, creating a fully immersive experience for language learners. <br />
 
@@ -10,7 +10,7 @@ Wordmap is a user-friendly, responsive dictionary application built with React. 
 - **Audio Pronunciation**: Listen to the correct pronunciation of words.
 - **Synonyms**: View synonyms for words to enhance vocabulary.
 - **Theme Toggle**: Switch between light and dark themes for a customized interface.
-- **Font Selection**: Choose between different fonts for better readability.
+- **Mode Selection**: Choose between different personality modes to improve personalized experience.
 - **Responsive Design**: Optimized for mobile, tablet, and desktop devices.
 
 ## Technologies Used
@@ -42,7 +42,7 @@ Wordmap is a user-friendly, responsive dictionary application built with React. 
 ## Usage
 
 1. Search for a word using the search bar.
-2. Select a font from the dropdown to change the font style.
+2. Select a personality mode from the dropdown according to your preferences.
 3. Use the theme toggle switch to switch between light and dark mode.
 4. Click the audio button to listen to the pronunciation of the word.
 
