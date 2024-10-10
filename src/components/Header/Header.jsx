@@ -49,9 +49,10 @@ const Header = ({
             id={styles.font__type}
             onChange={handleFontChange}
           >
-            <option value="Serif">Serif</option>
-            <option value="Sans-Serif">Sans Serif</option>
-            <option value="Monospace">Monospace</option>
+            <option value="Sans-Serif" style={{fontFamily: "sans-serif"}}>Sleek Mode</option>
+            <option value="Monospace" style={{fontFamily: "monospace"}}>Retro Mode</option>
+            <option value="Barlow" style={{fontFamily: "Barlow"}}>Friendly mode</option>
+            <option value="Fredericka the Great" style={{fontFamily: "Fredericka the Great"}}>Vintage Mode</option>
           </select>
           <span id={styles.nav__line}></span>
           <div className={styles.toggle__theme}>

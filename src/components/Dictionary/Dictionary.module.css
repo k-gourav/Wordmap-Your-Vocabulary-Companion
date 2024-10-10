@@ -56,7 +56,7 @@ img[alt="Audio-Player"] {
   flex-direction: column;
   gap: 1.4rem;
 }
-.word__meaning p,
+.word__meaning > p,
 .synonyms__title {
   font-size: 1.3rem;
   color: var(--light-gray);
@@ -80,6 +80,7 @@ ul li::marker {
   display: flex;
   gap: 1.7rem;
   margin: 1rem 0;
+  align-items: first baseline;
 }
 .synonyms__content {
   color: var(--dark-purple);
@@ -89,6 +90,7 @@ ul li::marker {
 }
 #verb__example {
   font-size: 1.15rem;
+  color: var(--light-gray);
 }
 .no__result {
   display: flex;
