@@ -98,9 +98,8 @@ ul li::marker {
   justify-content: center;
   align-items: center;
   height: 40vh;
-  color: var(--light-font);
   gap: 1.5rem;
-  font-family: var(--font-family-one);
+  text-align: center;
 }
 .no__result h2 {
   font-size: 4rem;
@@ -109,8 +108,8 @@ ul li::marker {
 .no__result p {
   font-size: 1.5rem;
   width: 50%;
-  text-align: center;
   line-height: 1.6;
+  color: var(--light-font);
 }
 @media screen and (max-width: 768px) {
   .main__word {
