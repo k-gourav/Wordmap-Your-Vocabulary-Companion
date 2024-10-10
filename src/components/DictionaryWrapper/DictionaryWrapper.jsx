@@ -7,10 +7,9 @@ const DictionaryWrapper = () => {
   const [fontSelected, setFontSelected] = useState("Serif");
   const [darkTheme, setDarkTheme] = useState(false);
   const [handleSearchResult, setHandleSearchResult] = useState([]);
-
+  
   useEffect(() => {
     document.body.setAttribute("data-theme", darkTheme ? "dark" : "light");
-
     return () => {
       document.body.removeAttribute("data-theme");
     };
