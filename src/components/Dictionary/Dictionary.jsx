@@ -13,17 +13,6 @@ const Dictionary = () => {
   const firstPhoneticWithAudio = wordData?.phonetics.find(
     (phonetic) => phonetic?.audio
   );
-  // if (!wordData) {
-  //   return (
-  //     <div className={styles.no__result}>
-  //       <h2>Oops ! 😕</h2>
-  //       <p>
-  //         We couldn't find the word you were looking for. Please try searching
-  //         again with a different word!
-  //       </p>
-  //     </div>
-  //   );
-  // }
   return (
     <main
       className={styles.main__element}
