@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "./Footer.module.css";
 import linkIcon from "../../assets/icons/external-link-icon.svg";
+import ThemeContext from "../../hooks/context/ThemeContext/ThemeContext";
+import FontContext from "../../hooks/context/FontContext/FontContext";
+import SearchContext from "../../hooks/context/SearchContext/SearchContext";
 
-const Footer = ({ fontSelected, darkTheme, handleSearchResult }) => {
-  const wordData = handleSearchResult[0] || null;
+const Footer = () => {
+  const { searchResult } = useContext(SearchContext);
+  const { darkTheme } = useContext(ThemeContext);
+  const { fontSelected } = useContext(FontContext);
+  const wordData = searchResult[0];
   return (
     <footer
       id={!wordData ? styles.no__border : ""}
@@ -16,12 +22,12 @@ const Footer = ({ fontSelected, darkTheme, handleSearchResult }) => {
           <p className={styles.footer__title}>Source</p>
           <p className={styles.footer__link}>
             <a
-              href={wordData.sourceUrls[0]}
+              href={wordData?.sourceUrls[0]}
               target="_blank"
               rel="noopener noreferrer"
               alt="external-link"
             >
-              {wordData.sourceUrls[0]}
+              {wordData?.sourceUrls[0]}
             </a>
             <img src={linkIcon} alt="Source Link Icon" width="18" />
           </p>

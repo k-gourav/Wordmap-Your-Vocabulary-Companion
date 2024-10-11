@@ -1,23 +1,29 @@
-import React from "react";
+import React, { useContext } from "react";
 import audioPlayer from "../../assets/images/play-icon.svg";
+import ThemeContext from "../../hooks/context/ThemeContext/ThemeContext"
 import styles from "./Dictionary.module.css";
+import FontContext from "../../hooks/context/FontContext/FontContext";
+import SearchContext from "../../hooks/context/SearchContext/SearchContext";
 
-const Dictionary = ({ fontSelected, darkTheme, handleSearchResult }) => {
-  const wordData = handleSearchResult[0];
+const Dictionary = () => {
+  const { darkTheme } = useContext(ThemeContext);
+  const { fontSelected } = useContext(FontContext);
+  const { searchResult } = useContext(SearchContext);
+  const wordData = searchResult[0];
   const firstPhoneticWithAudio = wordData?.phonetics.find(
     (phonetic) => phonetic?.audio
   );
-  if (!handleSearchResult) {
-    return (
-      <div className={styles.no__result}>
-        <h2>Oops ! 😕</h2>
-        <p>
-          We couldn't find the word you were looking for. Please try searching
-          again with a different word!
-        </p>
-      </div>
-    );
-  }
+  // if (!wordData) {
+  //   return (
+  //     <div className={styles.no__result}>
+  //       <h2>Oops ! 😕</h2>
+  //       <p>
+  //         We couldn't find the word you were looking for. Please try searching
+  //         again with a different word!
+  //       </p>
+  //     </div>
+  //   );
+  // }
   return (
     <main
       className={styles.main__element}
