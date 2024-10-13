@@ -10,6 +10,7 @@ import styles from "./Header.module.css";
 
 const Header = () => {
   const [wordInput, setWordInput] = useState("");
+  const [prevInput, setPrevInput] = useState("");
   const { darkTheme, setDarkTheme } = useContext(ThemeContext);
   const { fontSelected, setFontSelected } = useContext(FontContext);
   const { setSearchResult } = useContext(SearchContext);
@@ -29,8 +30,10 @@ const Header = () => {
 
   const inputSubmissionHandler = async () => {
     try {
-      const result = await fetchSearchResults(wordInput);
+      const result = await fetchSearchResults(wordInput, prevInput);
+      setPrevInput(wordInput);
       setSearchResult(result);
+      if (/^[ ]/.test(wordInput))setWordInput('');
     } catch (error) {
       console.error("Error fetching search results:", error);
     }

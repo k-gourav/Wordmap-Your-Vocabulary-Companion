@@ -1,8 +1,9 @@
-export const fetchSearchResults = async (inputWord) => {
+export const fetchSearchResults = async (inputWord, prevInputWord) => {
   try {
     if (!inputWord || /[^a-zA-Z\s]/.test(inputWord) || /^[ ]/.test(inputWord))
-      return;
-    else {
+      return [];
+    else { 
+      if (inputWord && prevInputWord === inputWord) return result;
       const response = await fetch(
         `https://api.dictionaryapi.dev/api/v2/entries/en/${inputWord}`
       );
