@@ -9,6 +9,7 @@ const Dictionary = () => {
   const { darkTheme } = useContext(ThemeContext);
   const { fontSelected } = useContext(FontContext);
   const { searchResult } = useContext(SearchContext);
+
   const wordData = searchResult[0];
   const firstPhoneticWithAudio = wordData?.phonetics.find(
     (phonetic) => phonetic?.audio
@@ -31,7 +32,7 @@ const Dictionary = () => {
                 className={styles.audio__player}
                 onClick={() => new Audio(firstPhoneticWithAudio?.audio).play()}
               >
-                <img src={audioPlayer} alt="Audio-Player" width="60" />
+                <img src={audioPlayer} alt="Audio-Player" width="60" loading="lazy" />
               </button>
             )}
           </div>

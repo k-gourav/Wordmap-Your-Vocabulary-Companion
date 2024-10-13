@@ -9,6 +9,7 @@ const Footer = () => {
   const { searchResult } = useContext(SearchContext);
   const { darkTheme } = useContext(ThemeContext);
   const { fontSelected } = useContext(FontContext);
+  
   const wordData = searchResult[0];
   return (
     <footer

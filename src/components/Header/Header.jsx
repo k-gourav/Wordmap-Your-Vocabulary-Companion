@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import { fetchSearchResults } from "../../api/dictionaryApi";
+import { fetchSearchResults } from "../../api/dictionary";
 import dictionaryLogo from "../../assets/icons/dictionary-icon.svg";
 import moonLogo from "../../assets/icons/moon-logo.svg";
 import searchIcon from "../../assets/images/search-icon.svg";
@@ -29,14 +29,14 @@ const Header = () => {
   };
 
   const inputSubmissionHandler = async () => {
-    try {
-      const result = await fetchSearchResults(wordInput, prevInput);
-      setPrevInput(wordInput);
-      setSearchResult(result);
-      if (/^[ ]/.test(wordInput))setWordInput('');
-    } catch (error) {
-      console.error("Error fetching search results:", error);
+    if (!wordInput || /[^a-zA-Z\s]/.test(wordInput) || /^[ ]/.test(wordInput)) {
+      setWordInput("");
+      return [];
     }
+    if (wordInput && prevInput === wordInput) return result;
+    const result = await fetchSearchResults(wordInput);
+    setPrevInput(wordInput);
+    setSearchResult(result);
   };
   return (
     <header
@@ -47,6 +47,7 @@ const Header = () => {
       <div className={styles.nav__bar}>
         <img
           src={dictionaryLogo}
+          loading="lazy"
           alt="Dictionary-Logo"
           id={styles.logo__icon}
         />
@@ -84,7 +85,7 @@ const Header = () => {
               />
               <span className={`${styles.slider} ${styles.round}`}></span>
             </label>
-            <img src={moonLogo} alt="Moon-Logo" width="26" />
+            <img src={moonLogo} alt="Moon-Logo" width="26" loading="lazy" />
           </div>
         </div>
       </div>
@@ -100,8 +101,8 @@ const Header = () => {
             if (e.key === "Enter") inputSubmissionHandler();
           }}
         />
-        <button className={styles.search__btn} onClick={inputSubmissionHandler}>
-          <img src={searchIcon} alt="Search-Icon" />
+        <button className={styles.search__btn} aria-label="Search" onClick={inputSubmissionHandler}>
+          <img src={searchIcon} alt="Search-Icon" loading="lazy" />
         </button>
       </div>
     </header>
