@@ -1,8 +1,14 @@
 import FontContext from "./FontContext";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const FontContextProvider = ({ children }) => {
-  const [fontSelected, setFontSelected] = useState("Sans-Serif");
+  const [fontSelected, setFontSelected] = useState(() => {
+    const savedFont = localStorage.getItem("fontSelected");
+    return savedFont ? JSON.parse(savedFont) : "Sans-Serif";
+  });
+  useEffect(() => {
+    localStorage.setItem("fontSelected", JSON.stringify(fontSelected));
+  }, [fontSelected]);
   return (
     <FontContext.Provider value={{ fontSelected, setFontSelected }}>
       {children}
