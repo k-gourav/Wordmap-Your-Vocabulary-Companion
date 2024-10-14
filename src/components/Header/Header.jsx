@@ -34,7 +34,7 @@ const Header = () => {
       setWordInput("");
       return [];
     }
-    if (wordInput && prevInput === wordInput) return result;
+    if (wordInput && prevInput.toLowerCase() === wordInput.toLowerCase()) return result;
     const result = await fetchSearchResults(wordInput);
     setPrevInput(wordInput);
     setSearchResult(result);
