@@ -57,6 +57,7 @@ const Header = () => {
             name="fonts"
             id={styles.font__type}
             onChange={handleFontChange}
+            value={fontSelected}
           >
             <option value="Manrope" style={{ fontFamily: "Manrope" }}>
               Sleek Mode
