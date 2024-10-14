@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 const FontContextProvider = ({ children }) => {
   const [fontSelected, setFontSelected] = useState(() => {
     const savedFont = localStorage.getItem("fontSelected");
-    return savedFont ? JSON.parse(savedFont) : "Sans-Serif";
+    return savedFont ? JSON.parse(savedFont) : "Manrope";
   });
   useEffect(() => {
     localStorage.setItem("fontSelected", JSON.stringify(fontSelected));

@@ -58,7 +58,7 @@ const Header = () => {
             id={styles.font__type}
             onChange={handleFontChange}
           >
-            <option value="Sans-Serif" style={{ fontFamily: "sans-serif" }}>
+            <option value="Manrope" style={{ fontFamily: "Manrope" }}>
               Sleek Mode
             </option>
             <option value="Monospace" style={{ fontFamily: "monospace" }}>
