@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { fetchSearchResults } from "../../api/dictionary";
 import dictionaryLogo from "../../assets/icons/dictionary-icon.svg";
 import moonLogo from "../../assets/icons/moon-logo.svg";
+import sunLogo from "../../assets/icons/sun-logo.svg"
 import searchIcon from "../../assets/images/search-icon.svg";
 import ThemeContext from "../../hooks/context/ThemeContext/ThemeContext";
 import FontContext from "../../hooks/context/FontContext/FontContext";
@@ -86,7 +87,7 @@ const Header = () => {
               />
               <span className={`${styles.slider} ${styles.round}`}></span>
             </label>
-            <img src={moonLogo} alt="Moon-Logo" width="26" loading="lazy" />
+            <img src={darkTheme ? moonLogo : sunLogo} alt="Selected-Theme-Icon" width="26" loading="lazy" />
           </div>
         </div>
       </div>
