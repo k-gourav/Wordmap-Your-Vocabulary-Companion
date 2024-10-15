@@ -1,8 +1,9 @@
 :root {
-  --light-bg: #fff;
+  --light-bg: #f9f6fd63;
   --light-font: #2d2d2d;
+  --intro-font: #2f2e2ed6;
   --light-purple: #9d40e4;
-  --light-input: #f4f4f4;
+  --light-input: #dedede6c;
   --ruler-bg: rgb(197, 196, 196);
   --light-gray: #757575;
   --list-color: #9c40e3;
@@ -11,8 +12,9 @@
   --font-family-two: "Castoro", serif;
 }
 [data-theme="dark"] {
-  --light-bg: #1f1f1f;
+  --light-bg: #1b1b1b;
   --light-font: #f5f5f5;
+  --intro-font: #bab8b8;
   --light-input: #333232c7;
   --light-gray: #a2a0a0;
   --dark-purple: #af49fd;

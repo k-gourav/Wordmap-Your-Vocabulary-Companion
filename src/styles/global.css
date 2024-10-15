@@ -15,6 +15,7 @@ html {
 body {
   min-height: 100vh;
   width: 80%;
+  background-color: var(--light-bg);
 }
 body[data-theme="dark"] {
   background-color: var(--light-bg);
@@ -23,10 +24,10 @@ body[data-theme="dark"] {
   width: 5px;
 }
 ::-webkit-scrollbar-track {
-  background: #b2a6dfca;
+  background: #3d3d3dca;
 }
 ::-webkit-scrollbar-thumb {
-  background: #9974aa;
+  background: #454545;
 }
 
 @media screen and (max-width: 996px) {

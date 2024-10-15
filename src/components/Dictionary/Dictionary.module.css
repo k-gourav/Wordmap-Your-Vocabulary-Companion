@@ -102,14 +102,17 @@ ul li::marker {
   text-align: center;
 }
 .no__result h2 {
-  font-size: 4rem;
-  color: rgb(210, 55, 55);
+  font-size: 4.2rem;
+  background-image: linear-gradient(90deg, rgb(124, 53, 175) 0%, rgba(143, 57, 204, 0.838) 8%, rgb(143, 49, 193) 16%, rgb(117, 37, 173) 33%, rgba(139, 38, 170, 0.748) 54%, rgb(98, 31, 157) 63%, rgb(120, 17, 189) 70%, rgb(118, 47, 159) 78%, rgb(109, 33, 151) 100%);
+  background-clip: text;
+  color: transparent;
 }
 .no__result p {
-  font-size: 1.5rem;
-  width: 50%;
+  font-size: 1.8rem;
+  width: 40%;
   line-height: 1.6;
-  color: var(--light-font);
+  color: var(--intro-font);
+  font-weight: 600;
 }
 @media screen and (max-width: 768px) {
   .main__word {
@@ -133,11 +136,11 @@ ul li::marker {
     height: 28vh;
   }
   .no__result h2 {
-    font-size: 1.87rem;
+    font-size: 1.96rem;
   }
   .no__result p {
-    font-size: 1.1rem;
-    width: 99%;
+    font-size: 1.2rem;
+    width: 96%;
   }
   img[alt="Audio-Player"] {
     width: 68%;

@@ -95,7 +95,7 @@ const Dictionary = () => {
         </>
       ) : (
         <div className={styles.no__result}>
-          <h2>Welcome to Wordmap !</h2>
+          <h2>Welcome to Wordmap</h2>
           <p>Search for your favourite words and share the world.</p>
         </div>
       )}
