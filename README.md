@@ -2,7 +2,9 @@
 
 Wordmap is a user-friendly, responsive dictionary application built with React. It allows users to search for word definitions, phonetics, and examples, providing a comprehensive understanding of any word. The app features theme switching, font customization, and audio pronunciation, creating a fully immersive experience for vocabulary learners. <br />
 
-![Project screenshot](https://github.com/user-attachments/assets/34c28c80-32d7-4aff-baae-dca32ff092d8)
+![Project screenshot](https://github.com/user-attachments/assets/900b80ca-1478-4422-a2ef-dae83d69a870)
+
+
 
 ## Features
 
