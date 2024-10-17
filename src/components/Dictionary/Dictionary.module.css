@@ -92,27 +92,52 @@ ul li::marker {
   font-size: 1.15rem;
   color: var(--light-gray);
 }
-.no__result {
+.intro__content, .noword__content {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 40vh;
+  height: 45vh;
   gap: 1.5rem;
   text-align: center;
 }
-.no__result h2 {
+.noword__content{
+  gap: 0.6rem;
+  color: var(--light-font);
+  height: 50vh;
+}
+.intro__title {
   font-size: 4.2rem;
-  background-image: linear-gradient(90deg, rgb(124, 53, 175) 0%, rgba(143, 57, 204, 0.838) 8%, rgb(143, 49, 193) 16%, rgb(117, 37, 173) 33%, rgba(139, 38, 170, 0.748) 54%, rgb(98, 31, 157) 63%, rgb(120, 17, 189) 70%, rgb(118, 47, 159) 78%, rgb(109, 33, 151) 100%);
+  background-image: linear-gradient(
+    90deg,
+    rgb(124, 53, 175) 0%,
+    rgba(143, 57, 204, 0.838) 8%,
+    rgb(143, 49, 193) 16%,
+    rgb(117, 37, 173) 33%,
+    rgba(139, 38, 170, 0.748) 54%,
+    rgb(98, 31, 157) 63%,
+    rgb(120, 17, 189) 70%,
+    rgb(118, 47, 159) 78%,
+    rgb(109, 33, 151) 100%
+  );
   background-clip: text;
   color: transparent;
 }
-.no__result p {
+.intro__body {
   font-size: 1.8rem;
   width: 40%;
   line-height: 1.6;
   color: var(--intro-font);
   font-weight: 600;
+}
+.noword__title{
+  font-size: 2rem;
+}
+.noword__body{
+  font-size: 1.3rem;
+}
+#noword__img{
+  width: 400px;
 }
 @media screen and (max-width: 768px) {
   .main__word {
@@ -132,17 +157,31 @@ ul li::marker {
   .synonyms__content {
     font-size: 1.18rem;
   }
-  .no__result {
+  .intro__content {
     height: 28vh;
   }
-  .no__result h2 {
+  .noword__content {
+    height: 45vh;
+  }
+  .noword__title{
+    font-size: 1.5rem;
+    width: 80%;
+  }
+  .noword__body{
+    font-size: 1.1rem;
+    width: 80%;
+  }
+  .intro__title {
     font-size: 1.96rem;
   }
-  .no__result p {
+  .intro__body {
     font-size: 1.2rem;
     width: 96%;
   }
   img[alt="Audio-Player"] {
     width: 68%;
+  }
+  #noword__img{
+    width: 80%;
   }
 }

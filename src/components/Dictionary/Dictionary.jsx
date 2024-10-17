@@ -1,19 +1,37 @@
 import React, { useContext } from "react";
 import audioPlayer from "../../assets/images/play-icon.svg";
-import ThemeContext from "../../hooks/context/ThemeContext/ThemeContext"
+import notFound from "../../assets/icons/not-found.svg";
+import ThemeContext from "../../hooks/context/ThemeContext/ThemeContext";
 import styles from "./Dictionary.module.css";
 import FontContext from "../../hooks/context/FontContext/FontContext";
+import InputContext from "../../hooks/context/InputContext/InputContext";
 import SearchContext from "../../hooks/context/SearchContext/SearchContext";
 
 const Dictionary = () => {
   const { darkTheme } = useContext(ThemeContext);
   const { fontSelected } = useContext(FontContext);
+  const { prevInput } = useContext(InputContext);
   const { searchResult } = useContext(SearchContext);
-
   const wordData = searchResult[0];
+  
   const firstPhoneticWithAudio = wordData?.phonetics.find(
     (phonetic) => phonetic?.audio
   );
+
+  if (!prevInput) {
+    return (
+      <div
+        className={styles.intro__content}
+        style={{ fontFamily: fontSelected }}
+        data-theme={darkTheme ? "dark" : "light"}
+      >
+        <h2 className={styles.intro__title}>Welcome to Wordmap</h2>
+        <p className={styles.intro__body}>
+          Search for your favourite words and share the world.
+        </p>
+      </div>
+    );
+  }
   return (
     <main
       className={styles.main__element}
@@ -32,7 +50,12 @@ const Dictionary = () => {
                 className={styles.audio__player}
                 onClick={() => new Audio(firstPhoneticWithAudio?.audio).play()}
               >
-                <img src={audioPlayer} alt="Audio-Player" width="60" loading="lazy" />
+                <img
+                  src={audioPlayer}
+                  alt="Audio-Player"
+                  width="60"
+                  loading="lazy"
+                />
               </button>
             )}
           </div>
@@ -56,7 +79,9 @@ const Dictionary = () => {
               </React.Fragment>
             ))}
 
-          {wordData?.meanings.some((meaning) => meaning?.synonyms?.length > 0) && (
+          {wordData?.meanings.some(
+            (meaning) => meaning?.synonyms?.length > 0
+          ) && (
             <div className={styles.synonyms}>
               <p className={styles.synonyms__title}>Synonyms</p>
               <p className={styles.synonyms__content}>
@@ -94,9 +119,12 @@ const Dictionary = () => {
             ))}
         </>
       ) : (
-        <div className={styles.no__result}>
-          <h2>Welcome to Wordmap</h2>
-          <p>Search for your favourite words and share the world.</p>
+        <div className={styles.noword__content}>
+          <img id={styles.noword__img} src={notFound}alt="not-found-pic" />
+          <h2 className={styles.noword__title}>Oops! We couldn't find that word.</h2>
+          <p className={styles.noword__body}>
+            Please check your spelling or try a synonym.
+          </p>
         </div>
       )}
     </main>

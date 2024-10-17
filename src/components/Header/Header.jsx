@@ -8,12 +8,13 @@ import ThemeContext from "../../hooks/context/ThemeContext/ThemeContext";
 import FontContext from "../../hooks/context/FontContext/FontContext";
 import SearchContext from "../../hooks/context/SearchContext/SearchContext";
 import styles from "./Header.module.css";
+import InputContext from "../../hooks/context/InputContext/InputContext";
 
 const Header = () => {
   const [wordInput, setWordInput] = useState("");
-  const [prevInput, setPrevInput] = useState("");
   const { darkTheme, setDarkTheme } = useContext(ThemeContext);
   const { fontSelected, setFontSelected } = useContext(FontContext);
+  const {prevInput, setPrevInput} = useContext(InputContext);
   const { setSearchResult } = useContext(SearchContext);
   useEffect(() => {
     document.body.setAttribute("data-theme", darkTheme ? "dark" : "light");
