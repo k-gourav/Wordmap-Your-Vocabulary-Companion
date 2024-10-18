@@ -11,6 +11,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1.2rem;
 }
 .word__withphonetics {
   display: flex;
@@ -25,10 +26,12 @@
   font-size: 1.5rem;
   color: var(--light-purple);
 }
-.audio__player {
+.audio__player, .share__btn {
   border: none;
   background: transparent;
   cursor: pointer;
+}
+.audio__player{
   transition: 1.5s all cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 img[alt="Audio-Player"] {
@@ -142,8 +145,7 @@ ul li::marker {
 }
 @media screen and (max-width: 768px) {
   .main__word {
-    padding-left: 0.25rem;
-    padding-right: 0.25rem;
+    gap: 10px;
   }
   .word__meaning ul {
     margin-left: 12px;
@@ -180,7 +182,13 @@ ul li::marker {
     width: 96%;
   }
   img[alt="Audio-Player"] {
-    width: 68%;
+    width: 50%;
+  }
+  .audio__player:active {
+    transform: scale(1.4);
+  }
+  img[alt="share-icon"] {
+    width: 30px;
   }
   #noword__img{
     width: 80%;

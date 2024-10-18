@@ -55,12 +55,12 @@ const Dictionary = () => {
                 <img
                   src={audioPlayer}
                   alt="Audio-Player"
-                  width="60"
+                  width="55"
                   loading="lazy"
                 />
               </button>
             )}
-            <button className={styles.audio__player}><img src={shareIcon} alt="share-icon" width="50" loading="lazy" /></button>
+            <button className={styles.share__btn}><img src={shareIcon} alt="share-icon" width="42" loading="lazy" /></button>
             </div>
           </div>
 

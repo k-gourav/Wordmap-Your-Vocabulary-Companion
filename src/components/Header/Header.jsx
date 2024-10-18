@@ -54,17 +54,21 @@ const Header = () => {
     alert("Link copied to clipboard!");
   };
   const inputSubmissionHandler = async () => {
-    if (!(wordInput.trim()) || /[^a-zA-Z\s]/.test(wordInput.trim())) {
-      setPrevInput("error");
+    if (!wordInput.trim()) {
       setWordInput("");
+      return [];
+    }
+    if (/[^a-zA-Z\s]/.test(wordInput.trim())) {
+      setPrevInput("error");
       return setSearchResult([]);
     }
 
-    if (wordInput && prevInput.toLowerCase() === wordInput.toLowerCase()) return result;
+    if (wordInput && prevInput.toLowerCase() === wordInput.toLowerCase())
+      return result;
     const result = await fetchSearchResults(wordInput);
     setPrevInput(wordInput);
     setSearchResult(result);
-    setWordInput(wordInput.trim())
+    setWordInput(wordInput.trim());
   };
   return (
     <header
