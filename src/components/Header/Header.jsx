@@ -15,7 +15,7 @@ const Header = () => {
   const { darkTheme, setDarkTheme } = useContext(ThemeContext);
   const { fontSelected, setFontSelected } = useContext(FontContext);
   const { prevInput, setPrevInput } = useContext(InputContext);
-  const { setSearchResult } = useContext(SearchContext);
+  const { searchResult, setSearchResult } = useContext(SearchContext);
   useEffect(() => {
     document.body.setAttribute("data-theme", darkTheme ? "dark" : "light");
     return () => {
@@ -23,36 +23,25 @@ const Header = () => {
     };
   }, [darkTheme]);
 
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const searchTerm = params.get("word");
+    if (searchTerm) {
+      const sharedResult = fetchSearchResults(searchTerm);
+      setSearchResult(sharedResult);
+      setPrevInput(searchTerm);
+      setWordInput(searchTerm);
+    }
+  }, []);
+
   const handleFontChange = (event) => {
     setFontSelected(event.target.value);
   };
+
   const themeHandler = (event) => {
     setDarkTheme(event.target.checked);
   };
 
-  const shareableUrlHandler = async (searchTerm) => {
-    const shareUrl = `${window.location.origin}?word=${searchTerm}`;
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title: 'Check out the result for "${searchTerm}"!',
-          text: 'I found something interesting about "${searchTerm}".',
-          url: shareUrl,
-        });
-      } catch (error) {
-        console.error("Error sharing", error);
-      }
-    } else {
-      alert(
-        "Sharing is not supported in your browser. You can copy the link below:"
-      );
-      copyToClipboard(shareUrl);
-    }
-  };
-  const copyToClipboard = (url) => {
-    navigator.clipboard.writeText(url);
-    alert("Link copied to clipboard!");
-  };
   const inputSubmissionHandler = async () => {
     if (!wordInput.trim()) {
       setWordInput("");
@@ -62,9 +51,8 @@ const Header = () => {
       setPrevInput("error");
       return setSearchResult([]);
     }
-
     if (wordInput && prevInput.toLowerCase() === wordInput.toLowerCase())
-      return result;
+      return searchResult;
     const result = await fetchSearchResults(wordInput);
     setPrevInput(wordInput);
     setSearchResult(result);

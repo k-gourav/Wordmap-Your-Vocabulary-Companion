@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { copyToClipboard, shareableUrlHandler } from "../../utils/helpers.js"
 import audioPlayer from "../../assets/images/play-icon.svg";
 import notFound from "../../assets/icons/not-found.svg";
 import shareIcon from "../../assets/images/share-icon.svg";
@@ -18,7 +19,6 @@ const Dictionary = () => {
   const firstPhoneticWithAudio = wordData?.phonetics.find(
     (phonetic) => phonetic?.audio
   );
-
   if (!prevInput) {
     return (
       <div
@@ -60,7 +60,7 @@ const Dictionary = () => {
                 />
               </button>
             )}
-            <button className={styles.share__btn}><img src={shareIcon} alt="share-icon" width="42" loading="lazy" /></button>
+            <button className={styles.share__btn} onClick={() => shareableUrlHandler(wordData?.word)}><img src={shareIcon} alt="share-icon" width="42" loading="lazy" /></button>
             </div>
           </div>
 

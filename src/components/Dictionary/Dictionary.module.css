@@ -30,6 +30,15 @@
   border: none;
   background: transparent;
   cursor: pointer;
+  border-radius: 50%;
+}
+.share__btn{
+  padding: 5px;
+  transition: 6ms all;
+
+}
+.share__btn:hover{
+  background-color: var(--light-input);
 }
 .audio__player{
   transition: 1.5s all cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -145,7 +154,7 @@ ul li::marker {
 }
 @media screen and (max-width: 768px) {
   .main__word {
-    gap: 10px;
+    gap: 15px;
   }
   .word__meaning ul {
     margin-left: 12px;
@@ -182,13 +191,13 @@ ul li::marker {
     width: 96%;
   }
   img[alt="Audio-Player"] {
-    width: 50%;
+    width: 60%;
   }
   .audio__player:active {
     transform: scale(1.4);
   }
   img[alt="share-icon"] {
-    width: 30px;
+    width: 35px;
   }
   #noword__img{
     width: 80%;
