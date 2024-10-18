@@ -44,7 +44,7 @@ const Dictionary = () => {
           <div className={styles.main__word}>
             <div className={styles.word__withphonetics}>
               <h1>{wordData?.word}</h1>
-              <p>{wordData?.phonetics[0]?.text}</p>
+              <p>{wordData?.phonetics?.find(p => p.text)?.text}</p>
             </div>
             <div className={styles.main__word}>
             {firstPhoneticWithAudio && (

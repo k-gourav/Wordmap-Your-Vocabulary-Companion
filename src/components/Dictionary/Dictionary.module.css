@@ -26,21 +26,21 @@
   font-size: 1.5rem;
   color: var(--light-purple);
 }
-.audio__player, .share__btn {
+.audio__player,
+.share__btn {
   border: none;
   background: transparent;
   cursor: pointer;
   border-radius: 50%;
 }
-.share__btn{
+.share__btn {
   padding: 5px;
   transition: 6ms all;
-
 }
-.share__btn:hover{
+.share__btn:hover {
   background-color: var(--light-input);
 }
-.audio__player{
+.audio__player {
   transition: 1.5s all cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 img[alt="Audio-Player"] {
@@ -104,7 +104,8 @@ ul li::marker {
   font-size: 1.15rem;
   color: var(--light-gray);
 }
-.intro__content, .noword__content {
+.intro__content,
+.noword__content {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -113,7 +114,7 @@ ul li::marker {
   gap: 1.5rem;
   text-align: center;
 }
-.noword__content{
+.noword__content {
   gap: 0.6rem;
   color: var(--light-font);
   height: 50vh;
@@ -142,19 +143,19 @@ ul li::marker {
   color: var(--intro-font);
   font-weight: 600;
 }
-.noword__title{
+.noword__title {
   font-size: 2rem;
   color: rgb(174, 53, 53);
 }
-.noword__body{
+.noword__body {
   font-size: 1.3rem;
 }
-#noword__img{
+#noword__img {
   width: 400px;
 }
 @media screen and (max-width: 768px) {
   .main__word {
-    gap: 15px;
+    gap: 8px;
   }
   .word__meaning ul {
     margin-left: 12px;
@@ -175,11 +176,11 @@ ul li::marker {
   .noword__content {
     height: 45vh;
   }
-  .noword__title{
+  .noword__title {
     font-size: 1.5rem;
     width: 80%;
   }
-  .noword__body{
+  .noword__body {
     font-size: 1.1rem;
     width: 80%;
   }
@@ -191,7 +192,7 @@ ul li::marker {
     width: 96%;
   }
   img[alt="Audio-Player"] {
-    width: 60%;
+    width: 65%;
   }
   .audio__player:active {
     transform: scale(1.4);
@@ -199,7 +200,7 @@ ul li::marker {
   img[alt="share-icon"] {
     width: 35px;
   }
-  #noword__img{
+  #noword__img {
     width: 80%;
   }
 }
