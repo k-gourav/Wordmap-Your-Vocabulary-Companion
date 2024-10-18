@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { fetchSearchResults } from "../../api/dictionary";
 import dictionaryLogo from "../../assets/icons/dictionary-icon.svg";
 import moonLogo from "../../assets/icons/moon-logo.svg";
@@ -23,15 +24,17 @@ const Header = () => {
     };
   }, [darkTheme]);
 
+  const fetchSharedResult = async (searchTerm) => {
+    const sharedResult = await fetchSearchResults(searchTerm);
+    setSearchResult(sharedResult);
+    setPrevInput(searchTerm);
+    setWordInput(searchTerm);
+  };
+
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const searchTerm = params.get("word");
-    if (searchTerm) {
-      const sharedResult = fetchSearchResults(searchTerm);
-      setSearchResult(sharedResult);
-      setPrevInput(searchTerm);
-      setWordInput(searchTerm);
-    }
+    if (searchTerm) fetchSharedResult(searchTerm);
   }, []);
 
   const handleFontChange = (event) => {
@@ -65,13 +68,14 @@ const Header = () => {
       data-theme={darkTheme ? "dark" : "light"}
     >
       <div className={styles.nav__bar}>
+        <Link to="/">
         <img
           src={dictionaryLogo}
           loading="lazy"
           alt="Dictionary-Logo"
           id={styles.logo__icon}
         />
-
+        </Link>
         <div className={styles.font_toggle__items}>
           <select
             name="fonts"
