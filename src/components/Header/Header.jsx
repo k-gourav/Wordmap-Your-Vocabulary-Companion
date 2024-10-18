@@ -4,6 +4,7 @@ import { fetchSearchResults } from "../../api/dictionary";
 import dictionaryLogo from "../../assets/icons/dictionary-icon.svg";
 import moonLogo from "../../assets/icons/moon-logo.svg";
 import sunLogo from "../../assets/icons/sun-logo.svg";
+import micLogo from "../../assets/images/mic-icon.png";
 import searchIcon from "../../assets/images/search-icon.svg";
 import ThemeContext from "../../hooks/context/ThemeContext/ThemeContext";
 import FontContext from "../../hooks/context/FontContext/FontContext";
@@ -131,6 +132,9 @@ const Header = () => {
             if (e.key === "Enter") inputSubmissionHandler();
           }}
         />
+        <div className={styles.search__tool}>
+        <button className={styles.mic__btn}><img src={micLogo} alt="mic-icon" /></button>
+        <span id={styles.search__line}></span>
         <button
           className={styles.search__btn}
           aria-label="Search"
@@ -138,6 +142,7 @@ const Header = () => {
         >
           <img src={searchIcon} alt="Search-Icon" loading="lazy" />
         </button>
+        </div>
       </div>
     </header>
   );
