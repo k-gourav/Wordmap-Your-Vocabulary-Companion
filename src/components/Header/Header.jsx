@@ -54,7 +54,7 @@ const Header = () => {
     alert("Link copied to clipboard!");
   };
   const inputSubmissionHandler = async () => {
-    if (!wordInput || /[^a-zA-Z\s]/.test(wordInput.trim())) {
+    if (!(wordInput.trim()) || /[^a-zA-Z\s]/.test(wordInput.trim())) {
       setPrevInput("error");
       setWordInput("");
       return setSearchResult([]);

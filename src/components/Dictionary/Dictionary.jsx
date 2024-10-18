@@ -14,7 +14,6 @@ const Dictionary = () => {
   const { prevInput } = useContext(InputContext);
   const { searchResult } = useContext(SearchContext);
   const wordData = searchResult[0];
-  console.log(searchResult);
   
   const firstPhoneticWithAudio = wordData?.phonetics.find(
     (phonetic) => phonetic?.audio
