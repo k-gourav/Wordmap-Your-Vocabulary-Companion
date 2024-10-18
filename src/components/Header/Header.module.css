@@ -19,9 +19,9 @@
   height: 25px;
 }
 #search__line{
-  background-color: var(--light-gray);
+  background-color: var(--common-gray);
   width: 0.5px;
-  height: 25px;
+  height: 23px;
 }
 .font_toggle__items {
   display: flex;

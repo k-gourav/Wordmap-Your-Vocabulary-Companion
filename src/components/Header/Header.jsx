@@ -13,11 +13,53 @@ import styles from "./Header.module.css";
 import InputContext from "../../hooks/context/InputContext/InputContext";
 
 const Header = () => {
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
   const [wordInput, setWordInput] = useState("");
   const { darkTheme, setDarkTheme } = useContext(ThemeContext);
   const { fontSelected, setFontSelected } = useContext(FontContext);
   const { prevInput, setPrevInput } = useContext(InputContext);
   const { searchResult, setSearchResult } = useContext(SearchContext);
+  const [isListening, setIsListening] = useState(false);
+  const [recognition, setRecognition] = useState(null);
+
+  useEffect(() => {
+    if (SpeechRecognition) {
+      const speechRecognition = new SpeechRecognition();
+      speechRecognition.lang = "en-US";
+      speechRecognition.interimResults = true;
+      speechRecognition.continuous = false;
+
+      speechRecognition.onresult = (event) => {
+        let currentTranscript = "";
+        for (const res of event.results) {
+          currentTranscript += res[0].transcript;
+        }
+        setWordInput(currentTranscript);
+      };
+
+      speechRecognition.onerror = (event) => {
+        console.error("Error occurred in recognition:", event.error);
+      };
+
+      speechRecognition.onend = () => {
+        setIsListening(false);
+      };
+
+      setRecognition(speechRecognition);
+    } else {
+      alert("Your browser does not support Speech Recognition.");
+    }
+  }, []);
+
+  const handleListening = () => {
+    if (isListening) {
+      recognition.stop();
+    } else {
+      recognition.start();
+      setIsListening(true);
+    }
+  };
+
   useEffect(() => {
     document.body.setAttribute("data-theme", darkTheme ? "dark" : "light");
     return () => {
@@ -70,12 +112,12 @@ const Header = () => {
     >
       <div className={styles.nav__bar}>
         <Link to="/">
-        <img
-          src={dictionaryLogo}
-          loading="lazy"
-          alt="Dictionary-Logo"
-          id={styles.logo__icon}
-        />
+          <img
+            src={dictionaryLogo}
+            loading="lazy"
+            alt="Dictionary-Logo"
+            id={styles.logo__icon}
+          />
         </Link>
         <div className={styles.font_toggle__items}>
           <select
@@ -133,15 +175,17 @@ const Header = () => {
           }}
         />
         <div className={styles.search__tool}>
-        <button className={styles.mic__btn}><img src={micLogo} alt="mic-icon" /></button>
-        <span id={styles.search__line}></span>
-        <button
-          className={styles.search__btn}
-          aria-label="Search"
-          onClick={inputSubmissionHandler}
-        >
-          <img src={searchIcon} alt="Search-Icon" loading="lazy" />
-        </button>
+          <button className={styles.mic__btn} onClick={handleListening}>
+            <img src={micLogo} alt="mic-icon" loading="lazy" />
+          </button>
+          <span id={styles.search__line}></span>
+          <button
+            className={styles.search__btn}
+            aria-label="Search"
+            onClick={inputSubmissionHandler}
+          >
+            <img src={searchIcon} alt="Search-Icon" loading="lazy" />
+          </button>
         </div>
       </div>
     </header>

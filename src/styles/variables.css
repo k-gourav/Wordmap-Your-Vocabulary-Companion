@@ -10,6 +10,7 @@
   --dark-purple: #953ed8;
   --font-family-one: "Lora", serif;
   --font-family-two: "Castoro", serif;
+  --common-gray: rgb(101, 101, 101);
 }
 [data-theme="dark"] {
   --light-bg: #1b1b1b;
@@ -18,5 +19,4 @@
   --light-input: #333232c7;
   --light-gray: #a2a0a0;
   --dark-purple: #af49fd;
-  
 }
