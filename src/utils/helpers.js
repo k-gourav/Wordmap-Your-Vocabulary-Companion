@@ -8,8 +8,8 @@ export const shareableUrlHandler = async (searchTerm) => {
   if (navigator.share) {
     try {
       await navigator.share({
-        title: 'Check out the result for "${searchTerm}"!',
-        text: 'I found something interesting about "${searchTerm}".',
+        title: `Check out the result for ${searchTerm}!`,
+        text: `I found something interesting about ${searchTerm}`,
         url: shareUrl,
       });
     } catch (error) {
