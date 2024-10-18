@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { fetchSearchResults } from "../../api/dictionary";
 import dictionaryLogo from "../../assets/icons/dictionary-icon.svg";
 import moonLogo from "../../assets/icons/moon-logo.svg";
-import sunLogo from "../../assets/icons/sun-logo.svg"
+import sunLogo from "../../assets/icons/sun-logo.svg";
 import searchIcon from "../../assets/images/search-icon.svg";
 import ThemeContext from "../../hooks/context/ThemeContext/ThemeContext";
 import FontContext from "../../hooks/context/FontContext/FontContext";
@@ -14,7 +14,7 @@ const Header = () => {
   const [wordInput, setWordInput] = useState("");
   const { darkTheme, setDarkTheme } = useContext(ThemeContext);
   const { fontSelected, setFontSelected } = useContext(FontContext);
-  const {prevInput, setPrevInput} = useContext(InputContext);
+  const { prevInput, setPrevInput } = useContext(InputContext);
   const { setSearchResult } = useContext(SearchContext);
   useEffect(() => {
     document.body.setAttribute("data-theme", darkTheme ? "dark" : "light");
@@ -30,15 +30,41 @@ const Header = () => {
     setDarkTheme(event.target.checked);
   };
 
-  const inputSubmissionHandler = async () => {
-    if (!wordInput || /[^a-zA-Z\s]/.test(wordInput) || /^[ ]/.test(wordInput)) {
-      setWordInput("");
-      return [];
+  const shareableUrlHandler = async (searchTerm) => {
+    const shareUrl = `${window.location.origin}?word=${searchTerm}`;
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: 'Check out the result for "${searchTerm}"!',
+          text: 'I found something interesting about "${searchTerm}".',
+          url: shareUrl,
+        });
+      } catch (error) {
+        console.error("Error sharing", error);
+      }
+    } else {
+      alert(
+        "Sharing is not supported in your browser. You can copy the link below:"
+      );
+      copyToClipboard(shareUrl);
     }
+  };
+  const copyToClipboard = (url) => {
+    navigator.clipboard.writeText(url);
+    alert("Link copied to clipboard!");
+  };
+  const inputSubmissionHandler = async () => {
+    if (!wordInput || /[^a-zA-Z\s]/.test(wordInput.trim())) {
+      setPrevInput("error");
+      setWordInput("");
+      return setSearchResult([]);
+    }
+
     if (wordInput && prevInput.toLowerCase() === wordInput.toLowerCase()) return result;
     const result = await fetchSearchResults(wordInput);
     setPrevInput(wordInput);
     setSearchResult(result);
+    setWordInput(wordInput.trim())
   };
   return (
     <header
@@ -88,7 +114,12 @@ const Header = () => {
               />
               <span className={`${styles.slider} ${styles.round}`}></span>
             </label>
-            <img src={darkTheme ? moonLogo : sunLogo} alt="Selected-Theme-Icon" width="26" loading="lazy" />
+            <img
+              src={darkTheme ? moonLogo : sunLogo}
+              alt="Selected-Theme-Icon"
+              width="26"
+              loading="lazy"
+            />
           </div>
         </div>
       </div>
@@ -104,7 +135,11 @@ const Header = () => {
             if (e.key === "Enter") inputSubmissionHandler();
           }}
         />
-        <button className={styles.search__btn} aria-label="Search" onClick={inputSubmissionHandler}>
+        <button
+          className={styles.search__btn}
+          aria-label="Search"
+          onClick={inputSubmissionHandler}
+        >
           <img src={searchIcon} alt="Search-Icon" loading="lazy" />
         </button>
       </div>

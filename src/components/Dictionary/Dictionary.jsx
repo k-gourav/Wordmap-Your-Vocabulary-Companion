@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import audioPlayer from "../../assets/images/play-icon.svg";
 import notFound from "../../assets/icons/not-found.svg";
+import shareIcon from "../../assets/images/share-icon.svg";
 import ThemeContext from "../../hooks/context/ThemeContext/ThemeContext";
 import styles from "./Dictionary.module.css";
 import FontContext from "../../hooks/context/FontContext/FontContext";
@@ -13,6 +14,7 @@ const Dictionary = () => {
   const { prevInput } = useContext(InputContext);
   const { searchResult } = useContext(SearchContext);
   const wordData = searchResult[0];
+  console.log(searchResult);
   
   const firstPhoneticWithAudio = wordData?.phonetics.find(
     (phonetic) => phonetic?.audio
@@ -45,6 +47,7 @@ const Dictionary = () => {
               <h1>{wordData?.word}</h1>
               <p>{wordData?.phonetics[0]?.text}</p>
             </div>
+            <div className={styles.main__word}>
             {firstPhoneticWithAudio && (
               <button
                 className={styles.audio__player}
@@ -58,6 +61,8 @@ const Dictionary = () => {
                 />
               </button>
             )}
+            <button className={styles.audio__player}><img src={shareIcon} alt="share-icon" width="50" loading="lazy" /></button>
+            </div>
           </div>
 
           {wordData?.meanings
@@ -120,7 +125,7 @@ const Dictionary = () => {
         </>
       ) : (
         <div className={styles.noword__content}>
-          <img id={styles.noword__img} src={notFound}alt="not-found-pic" />
+          <img id={styles.noword__img} src={notFound} loading="lazy" alt="not-found-pic" />
           <h2 className={styles.noword__title}>Oops! We couldn't find that word.</h2>
           <p className={styles.noword__body}>
             Please check your spelling or try a synonym.
