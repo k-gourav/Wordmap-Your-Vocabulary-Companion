@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
+import styles from "./Header.module.css";
 import { Link } from "react-router-dom";
 import { fetchSearchResults } from "../../api/dictionary";
 import dictionaryLogo from "../../assets/icons/dictionary-icon.svg";
@@ -9,7 +10,6 @@ import searchIcon from "../../assets/images/search-icon.svg";
 import ThemeContext from "../../hooks/context/ThemeContext/ThemeContext";
 import FontContext from "../../hooks/context/FontContext/FontContext";
 import SearchContext from "../../hooks/context/SearchContext/SearchContext";
-import styles from "./Header.module.css";
 import InputContext from "../../hooks/context/InputContext/InputContext";
 
 const Header = () => {
@@ -175,16 +175,12 @@ const Header = () => {
           }}
         />
         <div className={styles.search__tool}>
-          <button className={styles.mic__btn} onClick={handleListening}>
+          <button className={styles.mic__btn} onClick={handleListening} aria-label="Say your word">
             <img src={micLogo} alt="mic-icon" loading="lazy" />
           </button>
           <span id={styles.search__line}></span>
-          <button
-            className={styles.search__btn}
-            aria-label="Search"
-            onClick={inputSubmissionHandler}
-          >
-            <img src={searchIcon} alt="Search-Icon" loading="lazy" />
+          <button className={styles.search__btn} aria-label="Search" onClick={inputSubmissionHandler}>
+            <img src={searchIcon} alt="Search-Icon" width="21.5" loading="lazy" />
           </button>
         </div>
       </div>

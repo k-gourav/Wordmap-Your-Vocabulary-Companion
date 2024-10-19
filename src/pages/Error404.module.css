@@ -1,0 +1,33 @@
+.errorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  font-family: "Manrope";
+  background-color: var(--light-bg);
+}
+.errorMessage {
+  font-size: 24px;
+  color: #555;
+  margin-bottom: 20px;
+}
+.errorImage {
+  display: block;
+  max-width: 600px;
+  width: 100%;
+  margin-bottom: 35px;
+}
+.backHomeLink {
+  font-size: 18px;
+  color: #fff;
+  background-color: #742dd2;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+.backHomeLink:hover {
+  background-color: #8f54e7;
+}

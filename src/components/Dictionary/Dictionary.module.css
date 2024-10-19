@@ -40,6 +40,9 @@
 .share__btn:hover {
   background-color: var(--light-input);
 }
+.share__btn:active, .share__btn:focus{
+  background-color: transparent;
+}
 .audio__player {
   transition: 1.5s all cubic-bezier(0.075, 0.82, 0.165, 1);
 }

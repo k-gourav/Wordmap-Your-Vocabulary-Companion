@@ -120,10 +120,15 @@ input:checked + .slider:before {
   border: none;
   background: transparent;
   cursor: pointer;
+  outline: none;
+}
+.search__btn:focus, .mic__btn:focus{
+  outline: none;
 }
 img[alt="mic-icon"]{
-  width: 30px;
+  width: 31px;
 }
+
 @media screen and (max-width: 768px) {
   .font_toggle__items {
     gap: 1rem;
@@ -147,7 +152,7 @@ img[alt="mic-icon"]{
     padding: 1rem 1.2rem;
   }
   .search__tool{
-    gap: 10px;
+    gap: 9px;
   }
   #search__input {
     font-size: 1.1rem;
@@ -156,7 +161,10 @@ img[alt="mic-icon"]{
     width: 80%;
   }
   img[alt="mic-icon"]{
-    width: 27px;
+    width: 25px;
+  }
+  img[alt="Search-Icon"]{
+    width: 18px;
   }
   #font__type {
     font-size: 0.9rem;
