@@ -1,6 +1,7 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect, useCallback } from "react";
 import styles from "./Header.module.css";
 import { Link } from "react-router-dom";
+import { selectedFontStyle } from "../../utils/constants";
 import { fetchSearchResults } from "../../api/dictionary";
 import dictionaryLogo from "../../assets/icons/dictionary-icon.svg";
 import moonLogo from "../../assets/icons/moon-logo.svg";
@@ -21,6 +22,35 @@ const Header = () => {
   const { searchResult, setSearchResult } = useContext(SearchContext);
   const [isListening, setIsListening] = useState(false);
   const [recognition, setRecognition] = useState(null);
+  
+  const fetchSharedResult = useCallback(async (searchInput) => {
+    const sharedResult = await fetchSearchResults(searchInput);
+    setSearchResult(sharedResult);
+    setPrevInput(searchInput);
+    setWordInput(searchInput);
+  }, [setSearchResult, setPrevInput]);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const searchInput = params.get("word");
+    if (searchInput) fetchSharedResult(searchInput);
+  }, [fetchSharedResult]);
+  
+  const inputSubmissionHandler = useCallback(async (word) => {
+    if (!word.trim()) {
+      setWordInput("");
+      return [];
+    }
+    if (/[^a-zA-Z\s]/.test(word.trim())) {
+      setPrevInput("error");
+      return setSearchResult([]);
+    }
+    if (word && prevInput.toLowerCase() === word.toLowerCase()) return searchResult;
+    const result = await fetchSearchResults(word);
+    setPrevInput(word);
+    setSearchResult(result);
+    setWordInput(word.trim());
+  }, [prevInput, searchResult, setPrevInput, setSearchResult]);
 
   useEffect(() => {
     if (SpeechRecognition) {
@@ -43,15 +73,20 @@ const Header = () => {
 
       speechRecognition.onend = () => {
         setIsListening(false);
+        inputSubmissionHandler(wordInput);
       };
-
       setRecognition(speechRecognition);
-    } else {
+      } else {
       alert("Your browser does not support Speech Recognition.");
     }
-  }, []);
+    return () => {
+      if (recognition) {
+        recognition.abort();
+      } 
+    };
+  }, [SpeechRecognition, wordInput, inputSubmissionHandler]);
 
-  const handleListening = () => {
+  const audioListeningHandler = () => {
     if (isListening) {
       recognition.stop();
     } else {
@@ -67,43 +102,14 @@ const Header = () => {
     };
   }, [darkTheme]);
 
-  const fetchSharedResult = async (searchTerm) => {
-    const sharedResult = await fetchSearchResults(searchTerm);
-    setSearchResult(sharedResult);
-    setPrevInput(searchTerm);
-    setWordInput(searchTerm);
-  };
-
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const searchTerm = params.get("word");
-    if (searchTerm) fetchSharedResult(searchTerm);
-  }, []);
-
-  const handleFontChange = (event) => {
+  const handleFontChange = useCallback((event) => {
     setFontSelected(event.target.value);
-  };
+  }, [setFontSelected]);
 
-  const themeHandler = (event) => {
+  const themeHandler = useCallback((event) => {
     setDarkTheme(event.target.checked);
-  };
-
-  const inputSubmissionHandler = async () => {
-    if (!wordInput.trim()) {
-      setWordInput("");
-      return [];
-    }
-    if (/[^a-zA-Z\s]/.test(wordInput.trim())) {
-      setPrevInput("error");
-      return setSearchResult([]);
-    }
-    if (wordInput && prevInput.toLowerCase() === wordInput.toLowerCase())
-      return searchResult;
-    const result = await fetchSearchResults(wordInput);
-    setPrevInput(wordInput);
-    setSearchResult(result);
-    setWordInput(wordInput.trim());
-  };
+  }, [setDarkTheme]);
+  console.log('hi');
   return (
     <header
       className={styles.header__element}
@@ -126,21 +132,15 @@ const Header = () => {
             onChange={handleFontChange}
             value={fontSelected}
           >
-            <option value="Manrope" style={{ fontFamily: "Manrope" }}>
-              Sleek Mode
-            </option>
-            <option value="Monospace" style={{ fontFamily: "monospace" }}>
-              Retro Mode
-            </option>
-            <option value="Barlow" style={{ fontFamily: "Barlow" }}>
-              Friendly mode
-            </option>
-            <option
-              value="Special Elite"
-              style={{ fontFamily: "Special Elite" }}
-            >
-              Vintage Mode
-            </option>
+            {selectedFontStyle.map((item) => (
+              <option
+                key={item.value}
+                value={item.value}
+                style={{ fontFamily: item.value }}
+              >
+                {item.mode}
+              </option>
+            ))}
           </select>
           <span id={styles.nav__line}></span>
           <div className={styles.toggle__theme}>
@@ -171,16 +171,29 @@ const Header = () => {
           value={wordInput}
           placeholder="Search word..."
           onKeyDown={(e) => {
-            if (e.key === "Enter") inputSubmissionHandler();
+            if (e.key === "Enter") inputSubmissionHandler(wordInput);
           }}
         />
         <div className={styles.search__tool}>
-          <button className={styles.mic__btn} onClick={handleListening} aria-label="Say your word">
+          <button
+            className={styles.mic__btn}
+            onClick={audioListeningHandler}
+            aria-label="Say your word"
+          >
             <img src={micLogo} alt="mic-icon" loading="lazy" />
           </button>
           <span id={styles.search__line}></span>
-          <button className={styles.search__btn} aria-label="Search" onClick={inputSubmissionHandler}>
-            <img src={searchIcon} alt="Search-Icon" width="21.5" loading="lazy" />
+          <button
+            className={styles.search__btn}
+            aria-label="Search"
+            onClick={() => inputSubmissionHandler(wordInput)}
+          >
+            <img
+              src={searchIcon}
+              alt="Search-Icon"
+              width="21.5"
+              loading="lazy"
+            />
           </button>
         </div>
       </div>

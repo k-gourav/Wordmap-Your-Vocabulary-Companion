@@ -1,9 +1,9 @@
 import React from 'react';
-import error404 from "../assets/images/error-404.png"
+import error404 from "../../assets/images/error-404.png"
 import { Link } from 'react-router-dom';
 import styles from './Error404.module.css'; 
 
-const Error404 = () => {
+const NotFound404 = () => {
   return (
     <div className={styles.errorContainer}>
       <img 
@@ -19,4 +19,4 @@ const Error404 = () => {
   );
 };
 
-export default Error404;
+export default NotFound404;

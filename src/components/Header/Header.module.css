@@ -126,7 +126,7 @@ input:checked + .slider:before {
   outline: none;
 }
 img[alt="mic-icon"]{
-  width: 31px;
+  width: 29px;
 }
 
 @media screen and (max-width: 768px) {

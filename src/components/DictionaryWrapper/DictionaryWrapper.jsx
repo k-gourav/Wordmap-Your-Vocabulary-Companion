@@ -1,5 +1,6 @@
 import React, { Suspense } from "react";
 import Header from "../Header/Header";
+import Shimmer from "../Shimmer/Shimmer"
 import ThemeContextProvider from "../../hooks/context/ThemeContext/ThemeContextProvider";
 import FontContextProvider from "../../hooks/context/FontContext/FontContextProvider";
 import SearchContextProvider from "../../hooks/context/SearchContext/SearchContextProvider";
@@ -15,7 +16,7 @@ const DictionaryWrapper = () => {
         <InputContextProvider>
           <FontContextProvider>
             <Header />
-            <Suspense fallback={<div>loading..</div>}>
+            <Suspense fallback={<Shimmer />}>
             <Dictionary />
             <Footer />
             </Suspense>
