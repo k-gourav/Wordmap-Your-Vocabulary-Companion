@@ -51,14 +51,14 @@ const Header = () => {
     setSearchResult(result);
     setWordInput(word.trim());
   }, [prevInput, searchResult, setPrevInput, setSearchResult]);
-
+  
   useEffect(() => {
     if (SpeechRecognition) {
       const speechRecognition = new SpeechRecognition();
       speechRecognition.lang = "en-US";
       speechRecognition.interimResults = true;
       speechRecognition.continuous = false;
-
+  
       speechRecognition.onresult = (event) => {
         let currentTranscript = "";
         for (const res of event.results) {
@@ -66,26 +66,24 @@ const Header = () => {
         }
         setWordInput(currentTranscript);
       };
-
       speechRecognition.onerror = (event) => {
         console.error("Error occurred in recognition:", event.error);
       };
-
       speechRecognition.onend = () => {
         setIsListening(false);
-        inputSubmissionHandler(wordInput);
       };
       setRecognition(speechRecognition);
-      } else {
+    } else {
       alert("Your browser does not support Speech Recognition.");
     }
+    
     return () => {
       if (recognition) {
-        recognition.abort();
-      } 
+        recognition.stop(); 
+      }
     };
-  }, [SpeechRecognition, wordInput, inputSubmissionHandler]);
-
+  }, []);
+  
   const audioListeningHandler = () => {
     if (isListening) {
       recognition.stop();
@@ -94,7 +92,7 @@ const Header = () => {
       setIsListening(true);
     }
   };
-
+  
   useEffect(() => {
     document.body.setAttribute("data-theme", darkTheme ? "dark" : "light");
     return () => {
@@ -109,7 +107,10 @@ const Header = () => {
   const themeHandler = useCallback((event) => {
     setDarkTheme(event.target.checked);
   }, [setDarkTheme]);
-  console.log('hi');
+
+  const handleKeyDown = useCallback((e) => {
+    if (e.key === "Enter") inputSubmissionHandler(wordInput);
+  }, [wordInput, inputSubmissionHandler]);
   return (
     <header
       className={styles.header__element}
@@ -170,9 +171,7 @@ const Header = () => {
           onChange={(e) => setWordInput(e.target.value)}
           value={wordInput}
           placeholder="Search word..."
-          onKeyDown={(e) => {
-            if (e.key === "Enter") inputSubmissionHandler(wordInput);
-          }}
+          onKeyDown={handleKeyDown}
         />
         <div className={styles.search__tool}>
           <button
