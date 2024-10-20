@@ -130,6 +130,7 @@ const Header = () => {
           <select
             name="fonts"
             id={styles.font__type}
+            aria-label="Choose your font-style"
             onChange={handleFontChange}
             value={fontSelected}
           >
@@ -167,6 +168,7 @@ const Header = () => {
         <input
           type="text"
           name="search-bar"
+          aria-label="Search"
           id={styles.search__input}
           onChange={(e) => setWordInput(e.target.value)}
           value={wordInput}
