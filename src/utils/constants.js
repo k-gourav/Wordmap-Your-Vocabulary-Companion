@@ -8,8 +8,8 @@ export const selectedFontStyle = [
     mode: "Retro Mode",
   },
   {
-    value: "Barlow",
-    mode: "Friendly Mode",
+    value: "Happy Monkey",
+    mode: "Playful Mode",
   },
   {
     value: "Special Elite",
