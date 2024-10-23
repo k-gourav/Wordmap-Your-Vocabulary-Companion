@@ -14,7 +14,7 @@
   display: block;
 }
 #nav__line {
-  background-color: var(--light-gray);
+  background-color: var(--primary-gray);
   width: 1px;
   height: 25px;
 }
@@ -42,8 +42,8 @@
   overflow: hidden;
 }
 option, #font__type {
-  color: var(--light-font);
-  background-color: var(--light-bg);
+  color: var(--primary-font);
+  background-color: var(--primary-bg);
   font-weight: 600;
 }
 #font__type:focus {
@@ -94,7 +94,7 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 .search__bar {
-  background-color: var(--light-input);
+  background-color: var(--primary-input);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -109,7 +109,7 @@ input:checked + .slider:before {
   font-size: 1.25rem;
   font-weight: 500;
   font-family: inherit;
-  color: var(--light-font);
+  color: var(--primary-font);
 }
 .search__tool{
   display: flex;

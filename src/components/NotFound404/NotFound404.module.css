@@ -6,7 +6,7 @@
     height: 100vh;
     text-align: center;
     font-family: "Manrope";
-    background-color: var(--light-bg);
+    background-color: var(--primary-bg);
   }
   .errorMessage {
     font-size: 24px;

@@ -1,6 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&family=Lora:ital,wght@0,400..700;1,400..700&display=swap");
-
 .main__element {
   display: flex;
   flex-direction: column;
@@ -20,11 +17,11 @@
 }
 .word__withphonetics h1 {
   font-size: 4rem;
-  color: var(--light-font);
+  color: var(--primary-font);
 }
 .word__withphonetics p {
   font-size: 1.5rem;
-  color: var(--light-purple);
+  color: var(--primary-purple);
 }
 .audio__player,
 .share__btn {
@@ -38,7 +35,7 @@
   transition: 6ms all;
 }
 .share__btn:hover {
-  background-color: var(--light-input);
+  background-color: var(--primary-input);
 }
 .share__btn:active, .share__btn:focus{
   background-color: transparent;
@@ -58,7 +55,7 @@ img[alt="Audio-Player"] {
   gap: 1.6rem;
   font-size: 1.2rem;
   font-style: italic;
-  color: var(--light-font);
+  color: var(--primary-font);
   font-family: var(--font-family-two);
 }
 .horizontal__ruler {
@@ -74,7 +71,7 @@ img[alt="Audio-Player"] {
 .word__meaning > p,
 .synonyms__title {
   font-size: 1.3rem;
-  color: var(--light-gray);
+  color: var(--primary-gray);
   font-family: var(--font-family-one);
 }
 .word__meaning ul {
@@ -85,7 +82,7 @@ img[alt="Audio-Player"] {
 }
 ul li {
   font-size: 1.2rem;
-  color: var(--light-font);
+  color: var(--primary-font);
   line-height: 1.55;
 }
 ul li::marker {
@@ -105,7 +102,7 @@ ul li::marker {
 }
 #verb__example {
   font-size: 1.15rem;
-  color: var(--light-gray);
+  color: var(--primary-gray);
 }
 .intro__content,
 .noword__content {
@@ -119,7 +116,7 @@ ul li::marker {
 }
 .noword__content {
   gap: 0.6rem;
-  color: var(--light-font);
+  color: var(--primary-font);
   height: 50vh;
 }
 .intro__title {
