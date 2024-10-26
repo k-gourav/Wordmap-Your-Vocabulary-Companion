@@ -21,16 +21,17 @@ const Dictionary = () => {
   );
   if (!prevInput) {
     return (
-      <div
-        className={styles.intro__content}
+      <main
         style={{ fontFamily: fontSelected }}
         data-theme={darkTheme ? "dark" : "light"}
       >
+        <section  className={styles.intro__content}>
         <h2 className={styles.intro__title}>Welcome to Wordmap</h2>
         <p className={styles.intro__body}>
           Search for your favourite words and share the world.
         </p>
-      </div>
+        </section>
+      </main>
     );
   }
   return (

@@ -4,7 +4,7 @@ export const selectedFontStyle = [
     mode: "Sleek Mode",
   },
   {
-    value: "Monospace",
+    value: "Inconsolata",
     mode: "Retro Mode",
   },
   {
