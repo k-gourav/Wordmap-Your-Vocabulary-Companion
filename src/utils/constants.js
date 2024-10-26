@@ -12,7 +12,7 @@ export const selectedFontStyle = [
     mode: "Playful Mode",
   },
   {
-    value: "Special Elite",
+    value: "Fredericka the Great",
     mode: "Vintage Mode",
   },
 ];
