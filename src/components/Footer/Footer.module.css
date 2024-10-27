@@ -31,4 +31,7 @@ a[href] {
     flex-direction: column;
     gap: 0.8rem;
   }
+  .footer__link{
+    word-break: break-all;
+  }
 }

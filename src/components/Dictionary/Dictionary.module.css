@@ -19,6 +19,11 @@
   font-size: 4rem;
   color: var(--primary-font);
 }
+#large__word{
+  font-size: 2rem;
+  line-height: 1;
+  word-break: break-all;
+}
 .word__withphonetics p {
   font-size: 1.5rem;
   color: var(--primary-purple);
@@ -156,6 +161,9 @@ ul li::marker {
   }
   .word__withphonetics h1 {
     font-size: 2.15rem;
+  }
+  #large__word{
+    font-size: 1.48rem;
   }
   ul li {
     font-size: 1.1rem;
