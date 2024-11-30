@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { copyToClipboard, shareableUrlHandler } from "../../utils/helpers.js"
 import audioPlayer from "../../assets/images/play-icon.svg";
-import notFound from "../../assets/images/not-found.svg";
+import notFound from "../../assets/images/not-found.webp";
 import shareIcon from "../../assets/images/share-icon.svg";
 import ThemeContext from "../../hooks/context/ThemeContext/ThemeContext";
 import styles from "./Dictionary.module.css";
