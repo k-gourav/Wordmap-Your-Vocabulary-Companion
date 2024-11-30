@@ -1,0 +1,38 @@
+.noword__title {
+  font-size: 2rem;
+  color: rgb(174, 53, 53);
+}
+.noword__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    gap: 0.6rem;
+    text-align: center;
+    color: var(--primary-font);
+  }
+.noword__body {
+  font-size: 1.3rem;
+}
+#noword__img {
+  width: 400px;
+}
+
+@media screen and (max-width: 768px) {
+    .noword__content {
+        height: 45vh;
+      }
+      .noword__title {
+        font-size: 1.5rem;
+        width: 80%;
+      }
+      .noword__body {
+        font-size: 1.1rem;
+        width: 80%;
+      }
+      #noword__img {
+        width: 80%;
+      }
+}
+

@@ -23,6 +23,10 @@ const Header = () => {
   const [isListening, setIsListening] = useState(false);
   const [recognition, setRecognition] = useState(null);
   
+  const handleVibrate = () => {
+    window.navigator.vibrate([300])
+  };
+
   const fetchSharedResult = useCallback(async (searchInput) => {
     const sharedResult = await fetchSearchResults(searchInput);
     setSearchResult(sharedResult);
@@ -43,6 +47,7 @@ const Header = () => {
     }
     if (/[^a-zA-Z\s]/.test(word.trim())) {
       setPrevInput("error");
+      handleVibrate();
       return setSearchResult([]);
     }
     if (word && prevInput.toLowerCase() === word.toLowerCase()) return searchResult;
@@ -50,6 +55,7 @@ const Header = () => {
     setPrevInput(word);
     setSearchResult(result);
     setWordInput(word.trim());
+    if (!result.length) handleVibrate(); 
   }, [prevInput, searchResult, setPrevInput, setSearchResult]);
   
   useEffect(() => {

@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
-import { copyToClipboard, shareableUrlHandler } from "../../utils/helpers.js"
+import { shareableUrlHandler } from "../../utils/helpers.js";
 import audioPlayer from "../../assets/images/play-icon.svg";
-import notFound from "../../assets/images/not-found.webp";
 import shareIcon from "../../assets/images/share-icon.svg";
 import ThemeContext from "../../hooks/context/ThemeContext/ThemeContext";
 import styles from "./Dictionary.module.css";
@@ -9,13 +8,14 @@ import FontContext from "../../hooks/context/FontContext/FontContext";
 import InputContext from "../../hooks/context/InputContext/InputContext";
 import SearchContext from "../../hooks/context/SearchContext/SearchContext";
 
+const ResultNotFound = React.lazy(() => import("../ResultNotFound/ResultNotFound"));
 const Dictionary = () => {
   const { darkTheme } = useContext(ThemeContext);
   const { fontSelected } = useContext(FontContext);
   const { prevInput } = useContext(InputContext);
   const { searchResult } = useContext(SearchContext);
   const wordData = searchResult[0];
-  
+
   const firstPhoneticWithAudio = wordData?.phonetics.find(
     (phonetic) => phonetic?.audio
   );
@@ -25,11 +25,11 @@ const Dictionary = () => {
         style={{ fontFamily: fontSelected }}
         data-theme={darkTheme ? "dark" : "light"}
       >
-        <section  className={styles.intro__content}>
-        <h2 className={styles.intro__title}>Welcome to Wordmap</h2>
-        <p className={styles.intro__body}>
-          Search for your favourite words and share the world.
-        </p>
+        <section className={styles.intro__content}>
+          <h2 className={styles.intro__title}>Welcome to Wordmap</h2>
+          <p className={styles.intro__body}>
+            Search for your favourite words and share the world.
+          </p>
         </section>
       </main>
     );
@@ -44,24 +44,38 @@ const Dictionary = () => {
         <>
           <div className={styles.main__word}>
             <div className={styles.word__withphonetics}>
-              <h1 id={wordData?.word.length > 15 ? styles.large__word : "" }>{wordData?.word}</h1>
-              <p>{wordData?.phonetics?.find(p => p.text)?.text}</p>
+              <h1 id={wordData?.word.length > 15 ? styles.large__word : ""}>
+                {wordData?.word}
+              </h1>
+              <p>{wordData?.phonetics?.find((p) => p.text)?.text}</p>
             </div>
             <div className={styles.main__word}>
-            {firstPhoneticWithAudio && (
+              {firstPhoneticWithAudio && (
+                <button
+                  className={styles.audio__player}
+                  onClick={() =>
+                    new Audio(firstPhoneticWithAudio?.audio).play()
+                  }
+                >
+                  <img
+                    src={audioPlayer}
+                    alt="Audio-Player"
+                    width="55"
+                    loading="lazy"
+                  />
+                </button>
+              )}
               <button
-                className={styles.audio__player}
-                onClick={() => new Audio(firstPhoneticWithAudio?.audio).play()}
+                className={styles.share__btn}
+                onClick={() => shareableUrlHandler(wordData?.word)}
               >
                 <img
-                  src={audioPlayer}
-                  alt="Audio-Player"
-                  width="55"
+                  src={shareIcon}
+                  alt="share-icon"
+                  width="42"
                   loading="lazy"
                 />
               </button>
-            )}
-            <button className={styles.share__btn} onClick={() => shareableUrlHandler(wordData?.word)}><img src={shareIcon} alt="share-icon" width="42" loading="lazy" /></button>
             </div>
           </div>
 
@@ -124,13 +138,7 @@ const Dictionary = () => {
             ))}
         </>
       ) : (
-        <div className={styles.noword__content}>
-          <img id={styles.noword__img} src={notFound} loading="lazy" alt="not-found-pic" />
-          <h2 className={styles.noword__title}>Oops! We couldn't find that word.</h2>
-          <p className={styles.noword__body}>
-            Please check your spelling or try a synonym.
-          </p>
-        </div>
+        <ResultNotFound />
       )}
     </main>
   );

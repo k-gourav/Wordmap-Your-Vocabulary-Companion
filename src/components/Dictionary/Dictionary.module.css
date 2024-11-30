@@ -109,8 +109,7 @@ ul li::marker {
   font-size: 1.15rem;
   color: var(--primary-gray);
 }
-.intro__content,
-.noword__content {
+.intro__content{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -118,11 +117,6 @@ ul li::marker {
   height: 45vh;
   gap: 1.5rem;
   text-align: center;
-}
-.noword__content {
-  gap: 0.6rem;
-  color: var(--primary-font);
-  height: 50vh;
 }
 .intro__title {
   font-size: 4.2rem;
@@ -137,16 +131,8 @@ ul li::marker {
   color: var(--intro-font);
   font-weight: 600;
 }
-.noword__title {
-  font-size: 2rem;
-  color: rgb(174, 53, 53);
-}
-.noword__body {
-  font-size: 1.3rem;
-}
-#noword__img {
-  width: 400px;
-}
+
+
 @media screen and (max-width: 1024px) {
   .intro__body{
     width: 70%;
@@ -175,17 +161,6 @@ ul li::marker {
   .intro__content {
     height: 28vh;
   }
-  .noword__content {
-    height: 45vh;
-  }
-  .noword__title {
-    font-size: 1.5rem;
-    width: 80%;
-  }
-  .noword__body {
-    font-size: 1.1rem;
-    width: 80%;
-  }
   .intro__title {
     font-size: 1.96rem;
   }
@@ -201,8 +176,5 @@ ul li::marker {
   }
   img[alt="share-icon"] {
     width: 35px;
-  }
-  #noword__img {
-    width: 80%;
   }
 }
